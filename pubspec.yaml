@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.7
+  google_fonts: ^6.2.1
+  intl_phone_field: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -20,4 +22,3 @@ flutter:
   uses-material-design: true
   assets:
   - assets/images/
- 

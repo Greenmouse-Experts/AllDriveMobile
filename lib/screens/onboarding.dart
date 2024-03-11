@@ -88,7 +88,7 @@ class _OnboardingState extends State<Onboarding>
                     ),
                   ),
                   Positioned(
-                    top: isMobile ? screenHeight * 0.60 : screenHeight * 0.5,
+                    top: isMobile ? screenHeight * 0.55  : screenHeight * 0.5,
                     left: isMobile ? 20 : 25, // Adjust left padding for mobile
                     child: SafeArea(
                       child: Column(
@@ -193,8 +193,8 @@ class _OnboardingState extends State<Onboarding>
                         ),
                         child: const Padding(
                           padding: EdgeInsets.only(
-                            left: 20,
-                            right: 20,
+                            left: 12,
+                            right: 12,
                             top: 2,
                             bottom: 6,
                           ),

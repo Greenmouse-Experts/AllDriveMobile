@@ -1,7 +1,6 @@
 // sign_in.dart
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/home.dart';
 import 'package:roadside_heroes_app/screens/location.dart';
 
 class SignInScreen extends StatefulWidget {
