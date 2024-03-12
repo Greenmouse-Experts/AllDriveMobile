@@ -6,6 +6,7 @@ void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MainApp());
+  FlutterNativeSplash.remove();
 }
 
 class MainApp extends StatelessWidget {
@@ -13,8 +14,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      FlutterNativeSplash.remove();
-
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(

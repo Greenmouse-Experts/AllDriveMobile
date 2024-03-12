@@ -1,11 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
 import 'package:roadside_heroes_app/screens/widgets.dart/first_form_view.dart';
 import 'package:roadside_heroes_app/screens/widgets.dart/second_form_view.dart';
+import 'package:roadside_heroes_app/screens/widgets.dart/third_form_view.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key});
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
@@ -24,6 +27,57 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
+  void showModalDialog(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          color: const Color.fromARGB(255, 20, 36, 76),
+          height: 400,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  'Submitted succesfully',
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+                addHeight(10),
+                Text(
+                  "You will get notified once your request has\n"
+                  "   been accepted",
+                  style: TextStyle(fontSize: 17, color: Colors.white),
+                ),
+                addHeight(10),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                      side: const BorderSide(
+                          width: 1.5,
+                          color: Colors.white), // Add border side here
+                    ),
+                  ),
+                  child: Text(
+                    "Continue to App",
+                    style: TextStyle(
+                      color: Colors.orange,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     getIndicatorValue();
@@ -39,7 +93,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         title: const Text(
           "Request Assistance",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         elevation: 0,
         backgroundColor: const Color.fromARGB(255, 20, 36, 76),
@@ -47,112 +102,135 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       body: GestureDetector(
         onTap: () {
-          
+          FocusScope.of(context).unfocus();
         },
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Center(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: Padding(
-                        padding: const EdgeInsets.all(6.0),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              height: 2,
-                              child: LinearProgressIndicator(
-                                backgroundColor: Colors.grey,
-                                color: Colors.orange,
-                                value: indicatorValue,
-                                minHeight: 0.2,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final isMobile = constraints.maxWidth < 600;
+            final screenWidth = MediaQuery.of(context).size.width;
+            final screenHeight = MediaQuery.of(context).size.height;
+
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Padding(
+                          padding: const EdgeInsets.all(6.0),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.8,
+                                height: 2,
+                                child: LinearProgressIndicator(
+                                  backgroundColor: Colors.grey,
+                                  color: Colors.orange,
+                                  value: indicatorValue,
+                                  minHeight: 0.2,
+                                ),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
-                                  width: MediaQuery.of(context).size.width * 0.15,
-                                  height: 45,
-                                  child: Image.asset(
-                                    stepImages['first step']!,
-                                    fit: BoxFit.contain,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(2)),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.15,
+                                    height: 45,
+                                    child: Image.asset(
+                                      stepImages['first step']!,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
-                                  width: MediaQuery.of(context).size.width * 0.15,
-                                  height: 45,
-                                  child: Image.asset(
-                                    stepImages[index == 1 ? 'complete second step' : 'incomplete second step']!,
-                                    fit: BoxFit.contain,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(2)),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.15,
+                                    height: 45,
+                                    child: Image.asset(
+                                      stepImages[index > 0
+                                          ? 'complete second step'
+                                          : 'incomplete second step']!,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
-                                  width: MediaQuery.of(context).size.width * 0.15,
-                                  height: 45,
-                                  child: Image.asset(
-                                    stepImages[index == 2 ? "complete third step" : "incomplete third step"]!,
-                                    fit: BoxFit.contain,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(2)),
+                                    width: MediaQuery.of(context).size.width *
+                                        0.15,
+                                    height: 45,
+                                    child: Image.asset(
+                                      stepImages[index > 1
+                                          ? "complete third step"
+                                          : "incomplete third step"]!,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  if (index == 0) ...[
-                    FirstFormView(),
-                    addHeight(50),
-                  ],
-                  if (index == 1 || index == 2) ...[
-                    SecondFormView(),
-                    addHeight(20),
-                  ],
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                         final isMobile = constraints.maxWidth < 600;
-              final screenWidth = MediaQuery.of(context).size.width;
-                      return SizedBox(
-                        width: constraints.maxWidth * 0.9,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
+                    if (index == 0) ...[
+                      const FirstFormView(),
+                      addHeight(screenHeight * 0.10),
+                    ],
+                    if (index == 1) ...[
+                      const SecondFormView(),
+                      addHeight(screenHeight * 0.05),
+                    ],
+                    if (index >= 2) ...[
+                      const ThirdFormView(),
+                      addHeight(screenHeight * 0.02),
+                    ],
+                    SizedBox(
+                      width: constraints.maxWidth * 0.9,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            if (index <= 2) {
                               index++;
-                            });
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                            minimumSize: isMobile ? Size(screenWidth * 0.5, 58) : Size(screenWidth * 0.3, 85),
+                            }
+                            log(index.toString());
+                          });
+                          if (index > 2) {
+                            showModalDialog(context);
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(40),
                           ),
-                          child: Text(
-                            "Next",
-                            style: TextStyle(
-                              color: const Color.fromARGB(255, 20, 36, 76),
-                              fontWeight: FontWeight.w900,
-                              fontSize: isMobile ? 14 : 20,
-                            ),
+                          minimumSize: isMobile
+                              ? Size(screenWidth * 0.5, 58)
+                              : Size(screenWidth * 0.3, 85),
+                        ),
+                        child: Text(
+                          "Next",
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 20, 36, 76),
+                            fontWeight: FontWeight.w900,
+                            fontSize: isMobile ? 14 : 20,
                           ),
                         ),
-                      );
-                    },
-                  ),
-                ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );

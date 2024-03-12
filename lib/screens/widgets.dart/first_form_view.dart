@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
 class FirstFormView extends StatefulWidget {
@@ -11,6 +12,10 @@ class FirstFormView extends StatefulWidget {
 }
 
 class _FirstFormViewState extends State<FirstFormView> {
+  String initialCountry = 'CA';
+  PhoneNumber number = PhoneNumber(isoCode: 'CA');
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -20,27 +25,29 @@ class _FirstFormViewState extends State<FirstFormView> {
           final screenWidth = MediaQuery.of(context).size.width;
 
           return Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.only(top: 30),
             child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "First Name",
-                          style: GoogleFonts.lato().copyWith(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17)
-                        ),
+                        Text("First Name",
+                            style: GoogleFonts.lato().copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17)),
                         const SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(16),
                           ),
-                          height: isMobile ? 55 : 85,
-                          width: isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
+                          height: isMobile ? 52 : 85,
+                          width:
+                              isMobile ? screenWidth * 0.45 : screenWidth * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
@@ -49,20 +56,20 @@ class _FirstFormViewState extends State<FirstFormView> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SizedBox(
                                     width: isMobile ? 20 : 32,
-                                    height: isMobile ? 20 : 40,
+                                    height: isMobile ? 25 : 40,
                                     child: Image.asset(
                                       "assets/images/usernameheader.png",
                                       fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 20),
+                                addWidth(5),
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                       labelStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
-                                        fontSize: isMobile ? 18 : 22,
+                                        fontSize: isMobile ? 15 : 22,
                                       ),
                                       labelText: "First Name",
                                       border: InputBorder.none,
@@ -70,7 +77,6 @@ class _FirstFormViewState extends State<FirstFormView> {
                                     keyboardType: TextInputType.emailAddress,
                                     autocorrect: false,
                                     textCapitalization: TextCapitalization.none,
-                                   
                                   ),
                                 ),
                               ],
@@ -80,21 +86,23 @@ class _FirstFormViewState extends State<FirstFormView> {
                       ],
                     ),
                     addWidth(20),
-                     Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Last Name",
-                              style: GoogleFonts.lato().copyWith(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17)
-                        ),
+                        Text("Last Name",
+                            style: GoogleFonts.lato().copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17)),
                         const SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(14),
                           ),
                           height: isMobile ? 55 : 85,
-                          width: isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
+                          width:
+                              isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
@@ -124,154 +132,153 @@ class _FirstFormViewState extends State<FirstFormView> {
                                     keyboardType: TextInputType.emailAddress,
                                     autocorrect: false,
                                     textCapitalization: TextCapitalization.none,
-                                   
                                   ),
                                 ),
-                                
                               ],
                             ),
                           ),
                         ),
-                        
                       ],
                     ),
                   ],
                 ),
                 addHeight(20),
-                 Text(
-                          "Email Address",
-                              style: GoogleFonts.lato().copyWith(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17)
-                        ),
-                        addHeight(10),
+                Text("Email Address",
+                    style: GoogleFonts.lato().copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17)),
+                addHeight(10),
                 Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          height: isMobile ? 65 : 85,
-                          width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: isMobile ? 20 : 32,
-                                    height: isMobile ? 20 : 40,
-                                    child: Image.asset(
-                                      "assets/images/email_pin.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 20),
-                                Expanded(
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                      labelStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.3),
-                                        fontSize: isMobile ? 18 : 22,
-                                      ),
-                                      labelText: "Email Address",
-                                      border: InputBorder.none,
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    autocorrect: false,
-                                    textCapitalization: TextCapitalization.none,
-                                   
-                                  ),
-                                ),
-                              ],
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  height: isMobile ? 65 : 85,
+                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: isMobile ? 27 : 32,
+                            height: isMobile ? 27 : 40,
+                            child: Image.asset(
+                              "assets/images/email_pin.png",
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
-                         addHeight(20),
-
-                         Text(
-                          "Phone Number",
-                              style: GoogleFonts.lato().copyWith(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17)
-                        ),
-                        addHeight(10),
-                Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(14),
+                        const SizedBox(width: 20),
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              labelStyle: TextStyle(
+                                color: Colors.white.withOpacity(0.3),
+                                fontSize: isMobile ? 18 : 22,
+                              ),
+                              labelText: "Email Address",
+                              border: InputBorder.none,
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            autocorrect: false,
+                            textCapitalization: TextCapitalization.none,
                           ),
-                          height: isMobile ? 65 : 85,
-                          width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8),
-                            child: IntlPhoneField(
-                              dropdownIconPosition: IconPosition.trailing,
-                              disableLengthCheck: true,
-                              dropdownIcon: Icon(Icons.keyboard_arrow_down_rounded,color: Colors.white,),
-                              showDropdownIcon: true,
-                              style: TextStyle(color: Colors.white),
-                              textAlign: TextAlign.center,
-                                decoration: const InputDecoration(
-                                  iconColor: Colors.white,
-                                    labelText: '',
-                                    border: OutlineInputBorder(
-                                        borderSide: BorderSide.none,
-                                    ),
-                                ),
-                                initialCountryCode: 'NG',
-                                onChanged: (phone) {
-                                },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                addHeight(20),
+                Text("Phone Number",
+                    style: GoogleFonts.lato().copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17)),
+                addHeight(10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  height: isMobile ? 65 : 85,
+                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16), // Adjust the horizontal padding here
+                    child: InternationalPhoneNumberInput(
+                      hintText: '000 000 0000',
+                      cursorColor: Colors.white,
+                      onInputChanged: (PhoneNumber number) {},
+                      spaceBetweenSelectorAndTextField: 0,
+                      onInputValidated: (bool value) {},
+                      selectorConfig: const SelectorConfig(
+                        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                        useBottomSheetSafeArea: true,
+                      ),
+                      ignoreBlank: false,
+                      autoValidateMode: AutovalidateMode.disabled,
+                      selectorTextStyle: const TextStyle(color: Colors.black),
+                      initialValue: number,
+                      textFieldController: controller,
+                      formatInput: true,
+                      inputBorder:
+                          const OutlineInputBorder(borderSide: BorderSide.none),
+                      onSaved: (PhoneNumber number) {},
+                    ),
+                  ),
+                ),
+                addHeight(20),
+                Text("Address",
+                    style: GoogleFonts.lato().copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16)),
+                addHeight(10),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  height: isMobile ? 65 : 85,
+                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: isMobile ? 20 : 32,
+                            height: isMobile ? 20 : 40,
+                            child: Image.asset(
+                              "assets/images/map-pin.png",
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),
-                         addHeight(20),
-
-                         Text(
-                          "Address",
-                              style: GoogleFonts.lato().copyWith(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 17)
-                        ),
-                        addHeight(10),
-                Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          height: isMobile ? 65 : 85,
-                          width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: SizedBox(
-                                    width: isMobile ? 20 : 32,
-                                    height: isMobile ? 20 : 40,
-                                    child: Image.asset(
-                                      "assets/images/map-pin.png",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 20),
-                                Expanded(
-                                  child: TextFormField(
-                                    decoration: InputDecoration(
-                                      labelStyle: TextStyle(
-                                        color: Colors.white.withOpacity(0.3),
-                                        fontSize: isMobile ? 18 : 22,
-                                      ),
-                                      labelText: "Address",
-                                      border: InputBorder.none,
-                                    ),
-                                    keyboardType: TextInputType.emailAddress,
-                                    autocorrect: false,
-                                    textCapitalization: TextCapitalization.none,
-                                   
-                                  ),
-                                ),
-                              ],
+                        const SizedBox(width: 20),
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              labelStyle: TextStyle(
+                                color: Colors.white.withOpacity(0.3),
+                                fontSize: isMobile ? 18 : 22,
+                              ),
+                              labelText: "Address",
+                              border: InputBorder.none,
                             ),
+                            keyboardType: TextInputType.emailAddress,
+                            autocorrect: false,
+                            textCapitalization: TextCapitalization.none,
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           );
