@@ -13,8 +13,8 @@ class _ThirdFormViewState extends State<ThirdFormView> {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Container(
-          width: 40,
-          height: 40,
+          width: 30,
+          height: 30,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
           child: Image.asset(
             imagePath,
@@ -31,26 +31,29 @@ class _ThirdFormViewState extends State<ThirdFormView> {
           final isMobile = constraints.maxWidth < 600;
           final screenWidth = MediaQuery.of(context).size.width;
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              buildTextInputField(
-                  "Card Info", "Card Number", isMobile, screenWidth),
-              buildTextInputField(
-                  "Expiry", "Expiry date", isMobile, screenWidth),
-              buildTextInputField("CVV", "CVV", isMobile, screenWidth),
-              buildTextInputField(
-                  "Amount(CAD)", "Color", isMobile, screenWidth),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  cardContainer("assets/images/card_3.png"),
-                  cardContainer("assets/images/card_2.png"),
-                  cardContainer("assets/images/card_1.png"),
-                ],
-              ),
-            ],
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                buildTextInputField(
+                    "Card Info", "Card Number", isMobile, screenWidth),
+                buildTextInputField(
+                    "Expiry", "Expiry date", isMobile, screenWidth),
+                buildTextInputField("CVV", "CVV", isMobile, screenWidth),
+                buildTextInputField(
+                    "Amount(CAD)", "Color", isMobile, screenWidth),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    cardContainer("assets/images/card_3.png"),
+                    cardContainer("assets/images/card_2.png"),
+                    cardContainer("assets/images/card_1.png"),
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),
@@ -70,17 +73,17 @@ class _ThirdFormViewState extends State<ThirdFormView> {
           labelText,
           style: TextStyle(
             color: Colors.white,
-            fontSize: isMobile ? 15 : 25,
-            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
           ),
         ),
         const SizedBox(height: 10),
         Container(
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(16),
           ),
-          height: isMobile ? 55 : 85,
+          height: isMobile ? 52 : 85,
           width: isMobile ? screenWidth * 0.9 : screenWidth * 0.8,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

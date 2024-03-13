@@ -84,12 +84,12 @@ class _OnboardingState extends State<Onboarding>
                   Positioned.fill(
                     child: Image.asset(
                       contents[index].image,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   Positioned(
-                    top: isMobile ? screenHeight * 0.55  : screenHeight * 0.5,
-                    left: isMobile ? 20 : 25, // Adjust left padding for mobile
+                    top: isMobile ? screenHeight * 0.57 : screenHeight * 0.57,
+                    left: isMobile ? 20 : 30, // Adjust left padding for mobile
                     child: SafeArea(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,11 +98,14 @@ class _OnboardingState extends State<Onboarding>
                             contents[index].description,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: isMobile ? 34 : 60,
+                              fontSize: isMobile ? 30 : 55,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(height: screenHeight * 0.1),
+                          SizedBox(
+                              height: isMobile
+                                  ? screenHeight * 0.10
+                                  : screenHeight * 0.10),
                           SizedBox(
                             width: screenWidth,
                             child: Row(
@@ -119,8 +122,11 @@ class _OnboardingState extends State<Onboarding>
                                   child: GestureDetector(
                                     onTap: () {
                                       if (currentIndex == contents.length - 1) {
-                                        moveTo(const AuthenticationScreen(),
-                                            context);
+                                        Navigator.of(context)
+                                            .pushReplacement(MaterialPageRoute(
+                                          builder: (context) =>
+                                              const AuthenticationScreen(),
+                                        ));
                                         return;
                                       }
                                       _controller.nextPage(
@@ -179,8 +185,12 @@ class _OnboardingState extends State<Onboarding>
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: TextButton(
-                        onPressed: () =>
-                            moveTo(const AuthenticationScreen(), context),
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => const AuthenticationScreen(),
+                          ));
+                        },
                         style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.white),
@@ -191,14 +201,11 @@ class _OnboardingState extends State<Onboarding>
                             ),
                           ),
                         ),
-                        child: const Padding(
-                          padding: EdgeInsets.only(
-                            left: 12,
-                            right: 12,
-                            top: 2,
-                            bottom: 6,
-                          ),
-                          child: Text(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 10 : 12,
+                              vertical: isMobile ? 2 : 2),
+                          child: const Text(
                             "Skip",
                             style: TextStyle(
                               color: Color.fromARGB(255, 8, 4, 71),

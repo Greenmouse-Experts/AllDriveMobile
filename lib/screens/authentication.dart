@@ -44,9 +44,9 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                 ),
               ),
               Positioned(
-                top: isMobile ? screenHeight * 0.5 : screenHeight * 0.3,
-                left: isMobile ? 2 : screenWidth * 0.15,
-                right: isMobile ? 2 : screenWidth * 0.15,
+                top: isMobile ? screenHeight * 0.55 : screenHeight * 0.52,
+                left: isMobile ? 2 : screenWidth * 0.05,
+                right: isMobile ? 2 : screenWidth * 0.05,
                 child: SafeArea(
                   child: Column(
                     children: [
@@ -55,12 +55,13 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                         "your service company\n"
                         "to render help",
                         style: TextStyle(
-                          fontSize: isMobile ? 33 : 60,
+                          fontSize: isMobile ? 30 : 55,
+                          fontFamily: "Gilroy-SemiBold",
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(height: isMobile ? 100 : 40),
+                      addHeight(40),
                       ElevatedButton(
                         onPressed: () => moveTo(const SignUpScreen(), context),
                         style: ElevatedButton.styleFrom(
@@ -85,7 +86,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: isMobile ? 20 : 40),
+                      SizedBox(height: isMobile ? 10 : 20),
                       Hero(
                         tag: "signin",
                         child: ElevatedButton(

@@ -13,7 +13,6 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       body: LayoutBuilder(builder: (context, constraints) {
         double screenWidth = constraints.maxWidth;
         double screenHeight = constraints.maxHeight;
@@ -43,7 +42,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       fontSize: 13,
                       fontWeight: FontWeight.bold),
                 ),
-                addHeight(isMobile ? screenHeight * 0.3 : screenHeight * 0.5),
+                addHeight(isMobile ? screenHeight * 0.2 : screenHeight * 0.3),
                 ElevatedButton(
                   onPressed: () => moveTo(const HomeScreen(), context),
                   style: ElevatedButton.styleFrom(
@@ -65,6 +64,7 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                 ),
+                addHeight(isMobile ? screenHeight * 0.05 : screenHeight * 0.08),
               ],
             ),
           ),

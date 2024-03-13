@@ -10,7 +10,7 @@ const List<UnboardingContent> contents = [
       image: "assets/images/second image.png",
       description: "Receive requests from\n"
           "motorists around your\n"
-          "area"),
+          "area."),
   UnboardingContent(
       image: "assets/images/third image.png",
       description: "Place your service\n"

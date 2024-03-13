@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
 import 'package:roadside_heroes_app/screens/widgets.dart/first_form_view.dart';
@@ -27,46 +26,57 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
-  void showModalDialog(BuildContext context) {
+  void showModalDialog(BuildContext context, double screenWidth) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
         return Container(
-          color: const Color.fromARGB(255, 20, 36, 76),
+          width: screenWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color.fromARGB(255, 20, 36, 76),
+          ),
           height: 400,
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Text(
+                const Text(
                   'Submitted succesfully',
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
-                addHeight(10),
-                Text(
+                addHeight(20),
+                const Text(
                   "You will get notified once your request has\n"
-                  "   been accepted",
+                  "                been accepted",
                   style: TextStyle(fontSize: 17, color: Colors.white),
                 ),
-                addHeight(10),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                      side: const BorderSide(
-                          width: 1.5,
-                          color: Colors.white), // Add border side here
+                addHeight(40),
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          Theme.of(context).colorScheme.onBackground,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(
+                            width: 1.5,
+                            color: Colors.white), // Add border side here
+                      ),
+                      minimumSize: screenWidth < 600
+                          ? Size(screenWidth * 0.5, 52)
+                          : Size(screenWidth * 0.3, 85),
                     ),
-                  ),
-                  child: Text(
-                    "Continue to App",
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 14,
+                    child: const Text(
+                      "Continue to App",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 205, 145, 56),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ),
@@ -181,30 +191,30 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                     ),
+                    addHeight(25),
                     if (index == 0) ...[
                       const FirstFormView(),
-                      addHeight(screenHeight * 0.10),
+                      addHeight(50),
                     ],
                     if (index == 1) ...[
                       const SecondFormView(),
-                      addHeight(screenHeight * 0.05),
+                      addHeight(15),
                     ],
                     if (index >= 2) ...[
                       const ThirdFormView(),
-                      addHeight(screenHeight * 0.02),
+                      addHeight(10),
                     ],
                     SizedBox(
-                      width: constraints.maxWidth * 0.9,
+                      width: screenWidth * 0.9,
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
                             if (index <= 2) {
                               index++;
                             }
-                            log(index.toString());
                           });
                           if (index > 2) {
-                            showModalDialog(context);
+                            showModalDialog(context, screenWidth);
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -213,11 +223,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             borderRadius: BorderRadius.circular(40),
                           ),
                           minimumSize: isMobile
-                              ? Size(screenWidth * 0.5, 58)
+                              ? Size(screenWidth * 0.5, 52)
                               : Size(screenWidth * 0.3, 85),
                         ),
                         child: Text(
-                          "Next",
+                          index < 2 ? "Next" : "Submit",
                           style: TextStyle(
                             color: const Color.fromARGB(255, 20, 36, 76),
                             fontWeight: FontWeight.w900,

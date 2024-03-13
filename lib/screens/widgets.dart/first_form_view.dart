@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
@@ -25,7 +24,7 @@ class _FirstFormViewState extends State<FirstFormView> {
           final screenWidth = MediaQuery.of(context).size.width;
 
           return Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -37,17 +36,17 @@ class _FirstFormViewState extends State<FirstFormView> {
                         Text("First Name",
                             style: GoogleFonts.lato().copyWith(
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17)),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15)),
                         const SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          height: isMobile ? 52 : 85,
+                          height: isMobile ? 50 : 85,
                           width:
-                              isMobile ? screenWidth * 0.45 : screenWidth * 0.4,
+                              isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
@@ -92,17 +91,17 @@ class _FirstFormViewState extends State<FirstFormView> {
                         Text("Last Name",
                             style: GoogleFonts.lato().copyWith(
                                 color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17)),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 15)),
                         const SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
-                            borderRadius: BorderRadius.circular(14),
+                            borderRadius: BorderRadius.circular(16),
                           ),
-                          height: isMobile ? 55 : 85,
+                          height: isMobile ? 50 : 85,
                           width:
-                              isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
+                              isMobile ? screenWidth * 0.38 : screenWidth * 0.4,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Row(
@@ -111,20 +110,20 @@ class _FirstFormViewState extends State<FirstFormView> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: SizedBox(
                                     width: isMobile ? 20 : 32,
-                                    height: isMobile ? 20 : 40,
+                                    height: isMobile ? 25 : 40,
                                     child: Image.asset(
                                       "assets/images/usernameheader.png",
                                       fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(width: 20),
+                                addWidth(5),
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
                                       labelStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
-                                        fontSize: isMobile ? 15 : 22,
+                                        fontSize: isMobile ? 13 : 22,
                                       ),
                                       labelText: "Last Name",
                                       border: InputBorder.none,
@@ -146,15 +145,15 @@ class _FirstFormViewState extends State<FirstFormView> {
                 Text("Email Address",
                     style: GoogleFonts.lato().copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17)),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15)),
                 addHeight(10),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 65 : 85,
+                  height: isMobile ? 50 : 85,
                   width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -195,15 +194,15 @@ class _FirstFormViewState extends State<FirstFormView> {
                 Text("Phone Number",
                     style: GoogleFonts.lato().copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 17)),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15)),
                 addHeight(10),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 65 : 85,
+                  height: isMobile ? 55 : 85,
                   width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -234,15 +233,15 @@ class _FirstFormViewState extends State<FirstFormView> {
                 Text("Address",
                     style: GoogleFonts.lato().copyWith(
                         color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         fontSize: 16)),
                 addHeight(10),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 65 : 85,
+                  height: isMobile ? 52 : 85,
                   width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -251,8 +250,8 @@ class _FirstFormViewState extends State<FirstFormView> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: SizedBox(
-                            width: isMobile ? 20 : 32,
-                            height: isMobile ? 20 : 40,
+                            width: isMobile ? 30 : 32,
+                            height: isMobile ? 30 : 40,
                             child: Image.asset(
                               "assets/images/map-pin.png",
                               fit: BoxFit.contain,

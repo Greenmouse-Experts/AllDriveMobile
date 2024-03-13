@@ -24,7 +24,6 @@ class _SignInScreenState extends State<SignInScreen> {
     return GestureDetector(
       onTap: _closeKeyboard,
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 20, 36, 76),
         body: LayoutBuilder(
           builder: (context, constraints) {
             double screenWidth = constraints.maxWidth;

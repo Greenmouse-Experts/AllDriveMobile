@@ -20,7 +20,9 @@ class _SecondFormViewState extends State<SecondFormView> {
           final screenWidth = MediaQuery.of(context).size.width;
 
           return Padding(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.symmetric(
+              vertical: 8,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -30,25 +32,27 @@ class _SecondFormViewState extends State<SecondFormView> {
                     "Car Model", "Model", isMobile, screenWidth),
                 buildTextInputField("Year", "Year", isMobile, screenWidth),
                 buildTextInputField("Color", "Color", isMobile, screenWidth),
-                addHeight(20),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Checkbox(
-                      activeColor: Colors.orange,
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value!;
-                        });
-                      },
+                    SizedBox(
+                      width: 30,
+                      height: 5,
+                      child: Checkbox(
+                        activeColor: Colors.orange,
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value!;
+                          });
+                        },
+                      ),
                     ),
+                    addWidth(10),
                     const Text(
                       "All-Wheel Drive",
                       style: TextStyle(
                         color: Color.fromRGBO(186, 186, 186, 1.0),
-                        fontSize: 16,
+                        fontSize: 14,
                       ),
                     )
                   ],
@@ -74,17 +78,17 @@ class _SecondFormViewState extends State<SecondFormView> {
           labelText,
           style: TextStyle(
             color: Colors.white,
-            fontSize: isMobile ? 15 : 25,
-            fontWeight: FontWeight.bold,
+            fontSize: 15,
+            fontWeight: FontWeight.w500,
           ),
         ),
         const SizedBox(height: 10),
         Container(
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.3),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(16),
           ),
-          height: isMobile ? 55 : 85,
+          height: isMobile ? 52 : 85,
           width: isMobile ? screenWidth * 0.9 : screenWidth * 0.8,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
