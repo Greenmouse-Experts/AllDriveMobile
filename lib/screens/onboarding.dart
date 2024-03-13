@@ -132,7 +132,7 @@ class _OnboardingState extends State<Onboarding>
                                       _controller.nextPage(
                                         duration:
                                             const Duration(milliseconds: 100),
-                                        curve: Curves.bounceIn,
+                                        curve: Curves.easeOutBack,
                                       );
                                     },
                                     child: Stack(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/first_form_view.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/second_form_view.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/third_form_view.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/home.dart';
+import 'package:roadside_heroes_app/screens/widgets.dart/check_in_animation.dart';
+import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/first_form_view.dart';
+import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/second_form_view.dart';
+import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/third_form_view.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   int index = 0;
-  double indicatorValue = 0.3;
+  double indicatorValue = 0.5;
 
   void getIndicatorValue() {
     setState(() {
@@ -42,6 +43,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
+                              const CheckImageAnimation(),
+                              addHeight(20),
+
                 const Text(
                   'Submitted succesfully',
                   style: TextStyle(fontSize: 25, color: Colors.white),
@@ -56,7 +60,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => UserHomeScreen(),));},
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).colorScheme.onBackground,

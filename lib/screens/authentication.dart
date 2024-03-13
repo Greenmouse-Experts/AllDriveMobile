@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/sign_in.dart';
-import 'package:roadside_heroes_app/screens/sign_up.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/home.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   const AuthenticationScreen({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                         "your service company\n"
                         "to render help",
                         style: TextStyle(
-                          fontSize: isMobile ? 30 : 55,
+                          fontSize: isMobile ? 33 : 55,
                           fontFamily: "Gilroy-SemiBold",
                           color: Colors.white,
                           fontWeight: FontWeight.w700,
@@ -63,7 +63,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                       ),
                       addHeight(40),
                       ElevatedButton(
-                        onPressed: () => moveTo(const SignUpScreen(), context),
+                        onPressed: () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const UserHomeScreen(),)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
                           shape: RoundedRectangleBorder(
