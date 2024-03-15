@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/onboarding_data.dart';
 import 'package:roadside_heroes_app/screens/authentication.dart';
 

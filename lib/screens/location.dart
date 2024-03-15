@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/home.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/home.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -44,7 +45,7 @@ class _LocationScreenState extends State<LocationScreen> {
                 ),
                 addHeight(isMobile ? screenHeight * 0.2 : screenHeight * 0.3),
                 ElevatedButton(
-                  onPressed: () => moveTo(const ServicePersonnelHomeScreen(), context),
+                  onPressed: () => moveTo(HomeScreen(), context),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(

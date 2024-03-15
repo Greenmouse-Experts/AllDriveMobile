@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/home.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/check_in_animation.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/first_form_view.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/second_form_view.dart';
-import 'package:roadside_heroes_app/screens/widgets.dart/form_widgets/third_form_view.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
+import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
+import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/first_form_view.dart';
+import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/second_form_view.dart';
+import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/third_form_view.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -43,9 +43,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                              const CheckImageAnimation(),
-                              addHeight(20),
-
+                const CheckImageAnimation(),
+                addHeight(20),
                 const Text(
                   'Submitted succesfully',
                   style: TextStyle(fontSize: 25, color: Colors.white),
@@ -60,7 +59,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: ElevatedButton(
-                    onPressed: () {Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => UserHomeScreen(),));},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const SignedInUserHomeScreen(
+                          imagePath: "assets/images/signed_in_image.png",
+                        ),
+                      ));
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
                           Theme.of(context).colorScheme.onBackground,
@@ -122,7 +127,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           builder: (context, constraints) {
             final isMobile = constraints.maxWidth < 600;
             final screenWidth = MediaQuery.of(context).size.width;
-            final screenHeight = MediaQuery.of(context).size.height;
 
             return SingleChildScrollView(
               child: Padding(

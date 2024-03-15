@@ -1,15 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
-class SecondFormView extends StatefulWidget {
-  const SecondFormView({Key? key}) : super(key: key);
+class ThirdFormView extends StatefulWidget {
+  const ThirdFormView({Key? key}) : super(key: key);
 
   @override
-  State<SecondFormView> createState() => _SecondFormViewState();
+  State<ThirdFormView> createState() => _ThirdFormViewState();
 }
 
-class _SecondFormViewState extends State<SecondFormView> {
-  bool isChecked = false;
+class _ThirdFormViewState extends State<ThirdFormView> {
+  Widget cardContainer(String imagePath) {
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: Container(
+          width: 30,
+          height: 30,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(2)),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.contain,
+          )),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,41 +32,24 @@ class _SecondFormViewState extends State<SecondFormView> {
           final screenWidth = MediaQuery.of(context).size.width;
 
           return Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8,
-            ),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildTextInputField(
-                    "Car Make", "Car Make", isMobile, screenWidth),
+                    "Card Info", "Card Number", isMobile, screenWidth),
                 buildTextInputField(
-                    "Car Model", "Model", isMobile, screenWidth),
-                buildTextInputField("Year", "Year", isMobile, screenWidth),
-                buildTextInputField("Color", "Color", isMobile, screenWidth),
+                    "Expiry", "Expiry date", isMobile, screenWidth),
+                buildTextInputField("CVV", "CVV", isMobile, screenWidth),
+                buildTextInputField(
+                    "Amount(CAD)", "Color", isMobile, screenWidth),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 30,
-                      height: 5,
-                      child: Checkbox(
-                        activeColor: Colors.orange,
-                        value: isChecked,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isChecked = value!;
-                          });
-                        },
-                      ),
-                    ),
-                    addWidth(10),
-                    const Text(
-                      "All-Wheel Drive",
-                      style: TextStyle(
-                        color: Color.fromRGBO(186, 186, 186, 1.0),
-                        fontSize: 14,
-                      ),
-                    )
+                    cardContainer("assets/images/card_3.png"),
+                    cardContainer("assets/images/card_2.png"),
+                    cardContainer("assets/images/card_1.png"),
                   ],
                 ),
               ],
@@ -76,7 +71,7 @@ class _SecondFormViewState extends State<SecondFormView> {
       children: [
         Text(
           labelText,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 15,
             fontWeight: FontWeight.w500,

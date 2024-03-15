@@ -1,70 +1,121 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/navigation_widgets.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_search_bar_widgets.dart';
+import 'package:flutter/widgets.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/more.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/profile.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 
-class UserHomeScreen extends StatefulWidget {
-  const UserHomeScreen({super.key});
+Map<String, String> mapData = {"inactiveHome": ""};
+
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
 
   @override
-  State<UserHomeScreen> createState() => _UserHomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _UserHomeScreenState extends State<UserHomeScreen>
-    with SingleTickerProviderStateMixin {
-  Widget pageDivider() {
-    return const Divider(
-      thickness: 10,
-      color: Color(0xFFF4F4F4),
-    );
-  }
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  final List<BottomNavigationBarItem> navBarItems = [
+    BottomNavigationBarItem(
+      activeIcon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/head_active.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      icon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/head_inactive.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      label: 'Home',
+    ),
+    BottomNavigationBarItem(
+      activeIcon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/active_profile.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      icon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/inactive_profile.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      label: 'Profile',
+    ),
+    BottomNavigationBarItem(
+        activeIcon: SizedBox(
+          width: 30,
+          height: 40,
+          child: Image.asset(
+            "assets/images/active_profile.png",
+            fit: BoxFit.contain,
+          ),
+        ),
+        icon: SizedBox(
+          width: 30,
+          height: 40,
+          child: Image.asset(
+            "assets/images/inactive_chat.png",
+            fit: BoxFit.contain,
+          ),
+        ),
+        label: 'Chat'),
+    BottomNavigationBarItem(
+      activeIcon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/active_more.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      icon: SizedBox(
+        width: 30,
+        height: 40,
+        child: Image.asset(
+          "assets/images/inactive_more.png",
+          fit: BoxFit.contain,
+        ),
+      ),
+      label: 'More',
+    ),
+  ];
+
+  final List<Widget> _tabs = [
+    const SignedInUserHomeScreen(
+      imagePath: 'assets/images/signed_in_image.png',
+    ),
+    const ProfileScreen(),
+    const RequestsScreen(),
+    const MoreDialog()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: AppBarWidget(),
-                ),
-                addWidth(30),
-                Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: const Color(0xFF172748),
-                  ),
-                  child: const Center(
-                      child: Icon(
-                    Icons.menu,
-                    color: Color(0xFFFCEFE2),
-                  )),
-                )
-              ],
-            ),
-            addHeight(20),
-            const AdWidget(),
-            addHeight(20),
-            pageDivider(),
-            const HomeSearchBar(),
-            pageDivider(),
-            NavigationWidget(),
-                        pageDivider(),
-
-          ],
-        ),
-      )),
+      body: _tabs[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          onTap: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          currentIndex: _currentIndex,
+          items: navBarItems),
     );
   }
 }
