@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/nav_bar.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/tab_settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
@@ -9,7 +10,10 @@ import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/r
 
 class SignedInUserHomeScreen extends StatefulWidget {
   final String imagePath;
-  const SignedInUserHomeScreen({super.key, required this.imagePath});
+  const SignedInUserHomeScreen({
+    super.key,
+    required this.imagePath,
+  });
 
   @override
   State<SignedInUserHomeScreen> createState() => SignedInUserHomeScreenState();
@@ -32,47 +36,47 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  child: AppBarWidget(
-                    imagePath: "assets/images/signed_in_image.png",
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                    child: AppBarWidget(
+                      imagePath: "assets/images/signed_in_image.png",
+                    ),
                   ),
-                ),
-                addWidth(20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                      ),
-                      backgroundColor: const Color(0xFF172748),
-                      fixedSize: const Size(50, 60)),
-                  onPressed: () => moveTo(const TabButtonSettings(), context),
-                  child: const Icon(
-                    Icons.menu_sharp,
-                    color: Color(0xFFFCEFE2),
-                    size: 30,
-                  ),
-                )
-              ],
-            ),
-            addHeight(15),
-            const AdWidget(),
-            addHeight(15),
-            pageDivider(thickeness: 5),
-            const HomeSearchBar(),
-            pageDivider(),
-            const NavigationWidget(),
-            pageDivider(thickeness: 20),
-            const RequestWidget()
-          ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        backgroundColor: const Color(0xFF172748),
+                        fixedSize: const Size(50, 60)),
+                    onPressed: () => moveTo(const TabButtonSettings(), context),
+                    child: const Icon(
+                      Icons.menu_sharp,
+                      color: Color(0xFFFCEFE2),
+                      size: 30,
+                    ),
+                  )
+                ],
+              ),
+              addHeight(10),
+              const AdWidget(),
+              pageDivider(thickeness: 2),
+              const HomeSearchBar(),
+              pageDivider(),
+              const NavigationWidget(),
+              pageDivider(thickeness: 20),
+              const RequestWidget()
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

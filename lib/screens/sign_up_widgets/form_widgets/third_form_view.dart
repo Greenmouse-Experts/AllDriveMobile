@@ -42,7 +42,7 @@ class _ThirdFormViewState extends State<ThirdFormView> {
                     "Expiry", "Expiry date", isMobile, screenWidth),
                 buildTextInputField("CVV", "CVV", isMobile, screenWidth),
                 buildTextInputField(
-                    "Amount(CAD)", "Color", isMobile, screenWidth),
+                    "Amount(Dollar)", "Amount", isMobile, screenWidth),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -61,7 +61,7 @@ class _ThirdFormViewState extends State<ThirdFormView> {
   }
 
   Widget buildTextInputField(
-    String labelText,
+    String headerText,
     String hintText,
     bool isMobile,
     double screenWidth,
@@ -70,7 +70,7 @@ class _ThirdFormViewState extends State<ThirdFormView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          labelText,
+          headerText,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 15,
@@ -91,15 +91,16 @@ class _ThirdFormViewState extends State<ThirdFormView> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(
+                      hintStyle: TextStyle(
                         color: Colors.white.withOpacity(0.3),
                         fontSize: isMobile ? 18 : 22,
                       ),
-                      labelText: hintText,
+                      hintText: hintText,
                       border: InputBorder.none,
                     ),
-                    keyboardType: TextInputType.emailAddress,
+                    keyboardType: TextInputType.number,
                     autocorrect: false,
                     textCapitalization: TextCapitalization.none,
                   ),

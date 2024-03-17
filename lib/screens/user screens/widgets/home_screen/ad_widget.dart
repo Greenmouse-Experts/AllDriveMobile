@@ -15,10 +15,10 @@ class _AdWidgetState extends State<AdWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
         width: double.infinity,
-        height: 150,
+        height: 120,
         child: Stack(
           alignment: Alignment.centerLeft,
           children: [
@@ -26,6 +26,7 @@ class _AdWidgetState extends State<AdWidget>
                 child: Image.asset("assets/images/ad_background.png")),
             Positioned(
               left: 20,
+              top: 20,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +39,7 @@ class _AdWidgetState extends State<AdWidget>
                         fontWeight: FontWeight.bold,
                         fontSize: 13),
                   ),
-                  addHeight(10),
+                  addHeight(5),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(

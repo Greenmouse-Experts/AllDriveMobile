@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/sign_up.dart';
+import 'package:roadside_heroes_app/screens/request_assistance.dart';
 
 class NavigationWidget extends StatelessWidget {
   const NavigationWidget({super.key});
@@ -12,17 +12,16 @@ class NavigationWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 70,
-            height: 70,
+            width: 60,
+            height: 60,
             child: Image.asset(
               imagePath,
               fit: BoxFit.contain,
             ),
           ),
-          addHeight(10),
           Text(
             text,
-            style: const TextStyle(fontSize: 14),
+            style: const TextStyle(fontSize: 11),
           )
         ],
       ),
@@ -32,10 +31,11 @@ class NavigationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 25),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               imageContainer(
                   "assets/images/Frame 1000009955.png", "Towing", context),
@@ -53,8 +53,9 @@ class NavigationWidget extends StatelessWidget {
                   "assets/images/Frame 1000009963.png", "Jump Start", context),
             ],
           ),
-          addHeight(20),
+          addHeight(15),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               imageContainer("assets/images/row1.png", "Tire Pump", context),
               addWidth(7),

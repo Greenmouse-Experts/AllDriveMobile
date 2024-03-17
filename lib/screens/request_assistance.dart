@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
+import 'package:roadside_heroes_app/screens/home.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/first_form_view.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/second_form_view.dart';
@@ -61,10 +61,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const SignedInUserHomeScreen(
-                          imagePath: "assets/images/signed_in_image.png",
-                        ),
-                      ));
+                          builder: (context) => HomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:

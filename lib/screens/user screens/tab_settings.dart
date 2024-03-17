@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/nav_bar.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 
 class TabButtonSettings extends StatefulWidget {
@@ -25,7 +26,7 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
               color: const Color(0xFFEFF0F2),
             ),
             width: double.infinity,
-            height: 70,
+            height: 55,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
               child: Row(

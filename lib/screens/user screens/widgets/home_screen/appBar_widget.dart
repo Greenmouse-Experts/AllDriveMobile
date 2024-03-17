@@ -9,8 +9,8 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      height: 70,
+      width: 260,
+      height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: const Color(0xFFFCEFE2),

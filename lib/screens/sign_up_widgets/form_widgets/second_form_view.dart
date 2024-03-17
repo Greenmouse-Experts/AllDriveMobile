@@ -9,7 +9,7 @@ class SecondFormView extends StatefulWidget {
 }
 
 class _SecondFormViewState extends State<SecondFormView> {
-  bool isChecked = false;
+  bool isAllWheelDrive = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +39,10 @@ class _SecondFormViewState extends State<SecondFormView> {
                       height: 5,
                       child: Checkbox(
                         activeColor: Colors.orange,
-                        value: isChecked,
+                        value: isAllWheelDrive,
                         onChanged: (bool? value) {
                           setState(() {
-                            isChecked = value!;
+                            isAllWheelDrive = value!;
                           });
                         },
                       ),
@@ -66,7 +66,7 @@ class _SecondFormViewState extends State<SecondFormView> {
   }
 
   Widget buildTextInputField(
-    String labelText,
+    String headerText,
     String hintText,
     bool isMobile,
     double screenWidth,
@@ -75,7 +75,7 @@ class _SecondFormViewState extends State<SecondFormView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          labelText,
+          headerText,
           style: const TextStyle(
             color: Colors.white,
             fontSize: 15,
@@ -96,12 +96,13 @@ class _SecondFormViewState extends State<SecondFormView> {
               children: [
                 Expanded(
                   child: TextFormField(
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                      labelStyle: TextStyle(
+                      hintStyle: TextStyle(
                         color: Colors.white.withOpacity(0.3),
                         fontSize: isMobile ? 18 : 22,
                       ),
-                      labelText: hintText,
+                      hintText: hintText,
                       border: InputBorder.none,
                     ),
                     keyboardType: TextInputType.emailAddress,

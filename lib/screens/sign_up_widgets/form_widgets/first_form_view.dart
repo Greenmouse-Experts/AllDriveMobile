@@ -66,14 +66,14 @@ class _FirstFormViewState extends State<FirstFormView> {
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
-                                      labelStyle: TextStyle(
+                                      hintStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
                                         fontSize: isMobile ? 15 : 22,
                                       ),
-                                      labelText: "First Name",
+                                      hintText: "First Name",
                                       border: InputBorder.none,
                                     ),
-                                    keyboardType: TextInputType.emailAddress,
+                                    keyboardType: TextInputType.name,
                                     autocorrect: false,
                                     textCapitalization: TextCapitalization.none,
                                   ),
@@ -121,14 +121,14 @@ class _FirstFormViewState extends State<FirstFormView> {
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
-                                      labelStyle: TextStyle(
+                                      hintStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
                                         fontSize: isMobile ? 13 : 22,
                                       ),
-                                      labelText: "Last Name",
+                                      hintText: "Last Name",
                                       border: InputBorder.none,
                                     ),
-                                    keyboardType: TextInputType.emailAddress,
+                                    keyboardType: TextInputType.name,
                                     autocorrect: false,
                                     textCapitalization: TextCapitalization.none,
                                   ),
@@ -174,11 +174,11 @@ class _FirstFormViewState extends State<FirstFormView> {
                         Expanded(
                           child: TextFormField(
                             decoration: InputDecoration(
-                              labelStyle: TextStyle(
+                              hintStyle: TextStyle(
                                 color: Colors.white.withOpacity(0.3),
                                 fontSize: isMobile ? 18 : 22,
                               ),
-                              labelText: "Email Address",
+                              hintText: "Email Address",
                               border: InputBorder.none,
                             ),
                             keyboardType: TextInputType.emailAddress,
@@ -205,29 +205,39 @@ class _FirstFormViewState extends State<FirstFormView> {
                   height: isMobile ? 55 : 85,
                   width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16), // Adjust the horizontal padding here
-                    child: InternationalPhoneNumberInput(
-                      hintText: '000 000 0000',
-                      cursorColor: Colors.white,
-                      onInputChanged: (PhoneNumber number) {},
-                      spaceBetweenSelectorAndTextField: 0,
-                      onInputValidated: (bool value) {},
-                      selectorConfig: const SelectorConfig(
-                        selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
-                        useBottomSheetSafeArea: true,
-                      ),
-                      ignoreBlank: false,
-                      autoValidateMode: AutovalidateMode.disabled,
-                      selectorTextStyle: const TextStyle(color: Colors.black),
-                      initialValue: number,
-                      textFieldController: controller,
-                      formatInput: true,
-                      inputBorder:
-                          const OutlineInputBorder(borderSide: BorderSide.none),
-                      onSaved: (PhoneNumber number) {},
-                    ),
-                  ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15), // Adjust the horizontal padding here
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: isMobile ? 30 : 32,
+                            height: isMobile ? 30 : 40,
+                            child: Image.asset("assets/images/canda_flag.png"),
+                          ),
+                          addWidth(10),
+                          const Text(
+                            "+1",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                          addWidth(10),
+                          Expanded(
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintStyle: TextStyle(
+                                  color: Colors.white.withOpacity(0.3),
+                                  fontSize: isMobile ? 18 : 22,
+                                ),
+                                hintText: "Address",
+                                border: InputBorder.none,
+                              ),
+                              keyboardType: TextInputType.number,
+                              autocorrect: false,
+                              textCapitalization: TextCapitalization.none,
+                            ),
+                          )
+                        ],
+                      )),
                 ),
                 addHeight(20),
                 Text("Address",
@@ -262,14 +272,14 @@ class _FirstFormViewState extends State<FirstFormView> {
                         Expanded(
                           child: TextFormField(
                             decoration: InputDecoration(
-                              labelStyle: TextStyle(
+                              hintStyle: TextStyle(
                                 color: Colors.white.withOpacity(0.3),
                                 fontSize: isMobile ? 18 : 22,
                               ),
-                              labelText: "Address",
+                              hintText: "Address",
                               border: InputBorder.none,
                             ),
-                            keyboardType: TextInputType.emailAddress,
+                            keyboardType: TextInputType.streetAddress,
                             autocorrect: false,
                             textCapitalization: TextCapitalization.none,
                           ),

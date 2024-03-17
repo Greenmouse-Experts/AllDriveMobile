@@ -39,22 +39,24 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
               Row(
                 children: [
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: EdgeInsets.only(top: 20, left: 10, right: 10),
                     child: AppBarWidget(
                       imagePath: "assets/images/Frame 1000009840.png",
                     ),
                   ),
-                  addWidth(30),
-                  Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      color: const Color(0xFF172748),
-                    ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        backgroundColor: const Color(0xFF172748),
+                        fixedSize: const Size(50, 60)),
+                    onPressed: () {},
                     child: const Icon(
-                      Icons.menu,
+                      Icons.menu_sharp,
                       color: Color(0xFFFCEFE2),
+                      size: 30,
                     ),
                   )
                 ],
