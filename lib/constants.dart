@@ -30,8 +30,20 @@ Map<String, String> requestImages = {
   "emergency towing": "assets/images/emergency_towing.png",
 };
 
-List<Widget> bodys = [
-  SignedInUserHomeScreen(imagePath: signedInScreenImage),
-  ProfileScreen(),
-  RequestsScreen()
-];
+
+double getScreenWidth(BuildContext context){
+  return MediaQuery.of(context).size.width;
+
+}
+
+double getScreenHeight(BuildContext context){
+  return MediaQuery.of(context).size.height;
+
+}
+Widget pageDivider({double thickeness = 10}) {
+    double thickness = thickeness;
+    return Divider(
+      thickness: thickness,
+      color: const Color(0xFFF4F4F4),
+    );
+  }

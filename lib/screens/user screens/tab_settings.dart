@@ -78,7 +78,6 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
               settingContainer("assets/images/home.png", 'Home'),
               settingContainer("assets/images/send.png", 'Requests'),
               settingContainer("assets/images/bell.png", 'Notifications'),
-              settingContainer("assets/images/layers.png", 'Updates & FAQ'),
               settingContainer("assets/images/clock.png", 'History'),
               const Spacer(),
               settingContainer("assets/images/settings.png", 'Settings'),

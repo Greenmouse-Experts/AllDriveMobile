@@ -13,6 +13,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   String enteredEmail = "";
   String enteredPassword = "";
+  bool obscureText = true;
   final formKey = GlobalKey<FormState>();
 
   void _closeKeyboard() {
@@ -109,10 +110,10 @@ class _SignInScreenState extends State<SignInScreen> {
                                 Expanded(
                                   child: TextFormField(
                                     decoration: InputDecoration(
-                                      labelStyle: TextStyle(
+                                      hintStyle: TextStyle(
                                           color: Colors.white.withOpacity(0.3),
                                           fontSize: isMobile ? 18 : 22),
-                                      labelText: "Username",
+                                      hintText: "Username",
                                       border: InputBorder.none,
                                     ),
                                     keyboardType: TextInputType.emailAddress,
@@ -162,11 +163,12 @@ class _SignInScreenState extends State<SignInScreen> {
                                 addWidth(20),
                                 Expanded(
                                   child: TextFormField(
+                                    obscureText: obscureText,
                                     decoration: InputDecoration(
-                                      labelStyle: TextStyle(
+                                      hintStyle: TextStyle(
                                           color: Colors.white.withOpacity(0.3),
                                           fontSize: isMobile ? 18 : 22),
-                                      labelText: "Password",
+                                      hintText: "Password",
                                       border: InputBorder.none,
                                     ),
                                     keyboardType: TextInputType.emailAddress,
@@ -177,6 +179,20 @@ class _SignInScreenState extends State<SignInScreen> {
                                     },
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        obscureText = !obscureText;
+                                      });
+                                    },
+                                    child: Container(
+                                        width: isMobile ? 30 : 32,
+                                        height: isMobile ? 30 : 40,
+                                      child: Image.asset(obscureText == true ? "assets/images/password_visibility_off.png": "assets/images/password_visibility_on.png"),),
+                                  ),
+                                )
                               ],
                             ),
                           ),
@@ -188,7 +204,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               width: isMobile ? 20 : 32,
                               height: isMobile ? 20 : 40,
                               child: Image.asset(
-                                "assets/images/info-circle.jpg",
+                                "assets/images/forgot_password.png",
                                 fit: BoxFit.contain,
                               ),
                             ),

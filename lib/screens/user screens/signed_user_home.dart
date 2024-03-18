@@ -21,13 +21,7 @@ class SignedInUserHomeScreen extends StatefulWidget {
 
 class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
     with SingleTickerProviderStateMixin {
-  Widget pageDivider({double thickeness = 10}) {
-    double thickness = thickeness;
-    return Divider(
-      thickness: thickness,
-      color: const Color(0xFFF4F4F4),
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context) {

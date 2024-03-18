@@ -51,9 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 addHeight(20),
                 const Text(
+                textAlign: TextAlign.center,
                   "You will get notified once your request has\n"
-                  "                been accepted",
-                  style: TextStyle(fontSize: 17, color: Colors.white),
+                  "been accepted",
+                  style: TextStyle(fontSize: 17, color: Colors.white,),
                 ),
                 addHeight(40),
                 SizedBox(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
 class FirstFormView extends StatefulWidget {
@@ -11,8 +10,7 @@ class FirstFormView extends StatefulWidget {
 }
 
 class _FirstFormViewState extends State<FirstFormView> {
-  String initialCountry = 'CA';
-  PhoneNumber number = PhoneNumber(isoCode: 'CA');
+ 
   final TextEditingController controller = TextEditingController();
 
   @override
@@ -222,13 +220,13 @@ class _FirstFormViewState extends State<FirstFormView> {
                           addWidth(10),
                           Expanded(
                             child: TextFormField(
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                 hintStyle: TextStyle(
                                   color: Colors.white.withOpacity(0.3),
                                   fontSize: isMobile ? 18 : 22,
                                 ),
-                                hintText: "Address",
+                                hintText: "Phone Number",
                                 border: InputBorder.none,
                               ),
                               keyboardType: TextInputType.number,

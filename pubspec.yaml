@@ -12,9 +12,9 @@ dependencies:
   flutter_native_splash: ^2.3.7
   google_fonts: ^6.2.1
   im_stepper: ^1.0.1+1
+  image_picker: ^1.0.7
   image_sequence_animator: ^2.0.0
-  intl_phone_field: ^3.2.0
-  intl_phone_number_input: ^0.7.4
+
 
 dev_dependencies:
   flutter_test:

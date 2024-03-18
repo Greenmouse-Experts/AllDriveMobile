@@ -9,9 +9,10 @@ class RequestWidget extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Container(width: 80, height: 80, child: Image.asset(imagePath)),
-            addWidth(10),
+            SizedBox(width: 80, height: 80, child: Image.asset(imagePath)),
+            
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -19,11 +20,11 @@ class RequestWidget extends StatelessWidget {
                   request,
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
-                addHeight(10),
-                Container(
+                addHeight(5),
+                SizedBox(
                   width: 150,
                   child: Text(
                     address.trim(),
@@ -32,7 +33,7 @@ class RequestWidget extends StatelessWidget {
                     maxLines: 2,
 
                     // Optional: Specify text alignment
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: 13,color: Theme.of(context).colorScheme.onBackground),
                   ),
                 )
               ],
