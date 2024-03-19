@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadside_heroes_app/images_data.dart';
 import 'package:roadside_heroes_app/routes/tab_navigator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,7 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Center(
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 134, 132, 132).withOpacity(0.5),
+                  color:
+                      const Color.fromARGB(255, 134, 132, 132).withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20)),
               width: 300,
               height: 150,
@@ -190,7 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 width: 30,
                 height: 40,
                 child: Image.asset(
-                  "assets/images/active_profile.png",
+                  AppImages.chat_icon_nav_bar,
                   fit: BoxFit.contain,
                 ),
               ),

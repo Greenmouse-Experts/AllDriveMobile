@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/nav_bar.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/tab_settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
@@ -21,8 +20,6 @@ class SignedInUserHomeScreen extends StatefulWidget {
 
 class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
     with SingleTickerProviderStateMixin {
-  
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;

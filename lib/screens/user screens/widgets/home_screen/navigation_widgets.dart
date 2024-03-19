@@ -7,7 +7,9 @@ class NavigationWidget extends StatelessWidget {
 
   Widget imageContainer(String imagePath, String text, context) {
     return GestureDetector(
-      onTap: () => moveTo(const SignUpScreen(), context),
+      onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => SignUpScreen(),
+      )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -30,7 +32,6 @@ class NavigationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: Column(

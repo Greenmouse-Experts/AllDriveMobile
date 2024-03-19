@@ -1,5 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/images_data.dart';
+import 'package:roadside_heroes_app/routes/tab_navigator.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
 
 class RequestWidget extends StatelessWidget {
   const RequestWidget({super.key});
@@ -12,7 +16,6 @@ class RequestWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             SizedBox(width: 80, height: 80, child: Image.asset(imagePath)),
-            
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,7 +36,9 @@ class RequestWidget extends StatelessWidget {
                     maxLines: 2,
 
                     // Optional: Specify text alignment
-                    style: TextStyle(fontSize: 13,color: Theme.of(context).colorScheme.onBackground),
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: Theme.of(context).colorScheme.onBackground),
                   ),
                 )
               ],
@@ -69,24 +74,29 @@ class RequestWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const Spacer(),
-              Text(
-                "see all",
-                style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    decorationColor: Theme.of(context)
-                        .colorScheme
-                        .onBackground, // Optional: specify the underline color
-                    decorationStyle: TextDecorationStyle.solid,
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w600),
+              GestureDetector(
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => RequestsScreen(),
+                )),
+                child: Text(
+                  "see all",
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationColor: Theme.of(context)
+                          .colorScheme
+                          .onBackground, // Optional: specify the underline color
+                      decorationStyle: TextDecorationStyle.solid,
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600),
+                ),
               )
             ],
           ),
           addHeight(20),
-          requestDetails(requestImages["car repair"]!, "Car Repair",
+          requestDetails(requestImages["Car Repair"]!, "Car Repair",
               "10 Canlish Road . 10 GuildWood Parkwat", "2000", context),
-          requestDetails(requestImages["emergency towing"]!, "Emergency towing",
+          requestDetails(requestImages["Emergency Towing"]!, "Emergency towing",
               "10 Canlish Road . 10 GuildWood Parkwat", "3500", context)
         ],
       ),

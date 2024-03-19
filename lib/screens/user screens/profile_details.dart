@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/images_data.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 
 class ProfilDetail extends StatefulWidget {
@@ -15,6 +16,8 @@ class ProfilDetail extends StatefulWidget {
 
 class _ProfilDetailState extends State<ProfilDetail> {
   bool isEditing = false;
+  bool isEmailTextObscure = false;
+  bool isPasswordTextObscure = false;
 
   int button_press_count = 0;
 
@@ -23,7 +26,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          width: screenWidth,
+          width: double.infinity,
           height: 400,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -35,11 +38,15 @@ class _ProfilDetailState extends State<ProfilDetail> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const CheckImageAnimation(),
-                addHeight(20),
+                addHeight(30),
                 const Text(
                   'Profile Submitted succesfully',
-                  style: TextStyle(fontSize: 25, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
+                addHeight(30),
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: ElevatedButton(
@@ -125,30 +132,32 @@ class _ProfilDetailState extends State<ProfilDetail> {
           ),
         ],
       ),
-      body: SingleChildScrollView(child: LayoutBuilder(
+      body: LayoutBuilder(
         builder: (context, constraints) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Form(
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                    child: Container(
+                    child: SizedBox(
                       width: 100,
                       height: 100,
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          Image.asset("assets/images/signed_in_image.png",),
+                          Image.asset(
+                            "assets/images/signed_in_image.png",
+                          ),
                           GestureDetector(
-                            onTap: () {
-                              log("sss");
-                            },
-                            child: Container(
+                            onTap: () {},
+                            child: SizedBox(
                               width: 30,
                               height: 30,
-                              child: Image.asset("assets/images/camera_icon.png"),),
+                              child:
+                                  Image.asset("assets/images/camera_icon.png"),
+                            ),
                           )
                         ],
                       ),
@@ -176,17 +185,17 @@ class _ProfilDetailState extends State<ProfilDetail> {
                     style: const TextStyle(
                         color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
-                  Container(
-                    width: constraints.maxWidth * 0.9,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: Expanded(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
                           enabled: isEditing,
                           initialValue: 'Victor',
@@ -200,24 +209,23 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       ),
                     ),
                   ),
-                  addHeight(20),
+                  addHeight(10),
                   const Text(
                     "Last Name",
                     style: const TextStyle(
                         color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
-                  addHeight(10),
-                  Container(
-                    width: constraints.maxWidth * 0.9,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: Expanded(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
                           enabled: isEditing,
                           initialValue: 'Okatta',
@@ -231,72 +239,81 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       ),
                     ),
                   ),
-                  addHeight(20),
+                  addHeight(10),
                   const Text(
-                    "Email Address",
+                    "Email Adress",
                     style: const TextStyle(
                         color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
-                  addHeight(10),
-                  Container(
-                    width: constraints.maxWidth * 0.9,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                       child: Row(
                         children: [
-                          Expanded(
-                            child: TextFormField(
-                              enabled: isEditing,
-                              initialValue: 'victor@gmail.com',
-                              decoration: InputDecoration(
-                                hintStyle: TextStyle(
-                                  fontSize: 15,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              width: constraints.maxWidth * 0.7,
+                              child: TextFormField(
+                                obscureText: isEmailTextObscure,
+                                enabled: isEditing,
+                                initialValue: 'viktoh@gmail.com',
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
                                 ),
-                                border: InputBorder.none,
+                                keyboardType: TextInputType.name,
+                                autocorrect: false,
+                                textCapitalization: TextCapitalization.none,
                               ),
-                              keyboardType: TextInputType.emailAddress,
-                              autocorrect: false,
-                              textCapitalization: TextCapitalization.none,
                             ),
                           ),
                           addWidth(10),
-                          Container(
-                            width: 30,
-                            height: 30,
-                            child: Image.asset(
-                                "assets/images/mdi_eye-lock-outline.png"),
+                          GestureDetector(
+                            onTap: () {
+                              if (isEditing) {
+                                setState(() {
+                                  isEmailTextObscure = !isEmailTextObscure;
+                                });
+                              }
+                            },
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(isEmailTextObscure
+                                  ? AppImages.profile_details_closed_password
+                                  : AppImages.profile_details_open_password),
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  addHeight(20),
+                  addHeight(10),
                   const Text(
                     "Resedential Address",
                     style: const TextStyle(
                         color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
-                  addHeight(10),
-                  Container(
-                    width: constraints.maxWidth * 0.9,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: Expanded(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: TextFormField(
                           enabled: isEditing,
-                          initialValue: 'QueensPark Avenue,New York',
+                          initialValue: 'Queens park avenue new york',
                           decoration: InputDecoration(
                             border: InputBorder.none,
                           ),
@@ -307,54 +324,69 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       ),
                     ),
                   ),
-                  addHeight(20),
+                  addHeight(10),
                   const Text(
                     "Password",
                     style: const TextStyle(
                         color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
-                  addHeight(10),
-                  Container(
-                    width: constraints.maxWidth * 0.9,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    child: Container(
+                      width: screenWidth * 0.9,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                       child: Row(
                         children: [
-                          Expanded(
-                            child: TextFormField(
-                              enabled: isEditing,
-                              initialValue: 'thatcreativeddesigners',
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: SizedBox(
+                              width: constraints.maxWidth * 0.7,
+                              child: TextFormField(
+                                obscureText: isPasswordTextObscure,
+                                enabled: isEditing,
+                                initialValue: 'thatcreative_designer99',
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                ),
+                                keyboardType: TextInputType.name,
+                                autocorrect: false,
+                                textCapitalization: TextCapitalization.none,
                               ),
-                              keyboardType: TextInputType.text,
-                              autocorrect: false,
-                              textCapitalization: TextCapitalization.none,
                             ),
                           ),
                           addWidth(10),
-                          Container(
-                            width: 30,
-                            height: 30,
-                            child: Image.asset(
-                                "assets/images/mdi_eye-lock-outline.png"),
+                          GestureDetector(
+                            onTap: () {
+                              if (isEditing) {
+                                setState(() {
+                                  isPasswordTextObscure =
+                                      !isPasswordTextObscure;
+                                });
+                              }
+                            },
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(isPasswordTextObscure
+                                  ? AppImages.profile_details_closed_password
+                                  : AppImages.profile_details_open_password),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  // Repeat the above pattern for other form fields
                 ],
               ),
             ),
           );
         },
-      )),
+      ),
     );
   }
 }

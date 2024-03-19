@@ -19,9 +19,9 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
           double screenWidth = constraints.maxWidth;
           double screenHeight = constraints.maxHeight;
           bool isMobile = screenWidth < 600;
-      
+
           return SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               height: getScreenHeight(context),
               child: Stack(
                 children: [
@@ -68,7 +68,8 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           ElevatedButton(
                             onPressed: () => Navigator.of(context)
                                 .pushReplacement(MaterialPageRoute(
-                              builder: (context) => const UnSignedUserHomeScreen(),
+                              builder: (context) =>
+                                  const UnSignedUserHomeScreen(),
                             )),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color.fromARGB(0, 0, 0, 0),
