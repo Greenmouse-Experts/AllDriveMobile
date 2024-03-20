@@ -3,12 +3,14 @@ import 'package:roadside_heroes_app/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
   final String imagePath;
-  const AppBarWidget({super.key, required this.imagePath});
+  final BoxConstraints constraint;
+  const AppBarWidget(
+      {super.key, required this.imagePath, required this.constraint});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 260,
+      width: constraint.maxWidth * 0.65,
       height: 60,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
@@ -20,8 +22,8 @@ class AppBarWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Container(
-                width: 54,
-                height: 54,
+                width: 50,
+                height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
                   color: const Color(0xFFEB963F),
@@ -39,7 +41,7 @@ class AppBarWidget extends StatelessWidget {
           const Text(
             "Good morning, Dwaelo",
             style: TextStyle(
-                fontSize: 15,
+                fontSize: 14,
                 color: Color(0xFF172748),
                 fontWeight: FontWeight.bold),
           )

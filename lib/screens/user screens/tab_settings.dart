@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/notification.dart';
+import 'package:roadside_heroes_app/screens/settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/nav_bar.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 
 class TabButtonSettings extends StatefulWidget {
@@ -12,14 +15,14 @@ class TabButtonSettings extends StatefulWidget {
 }
 
 class _TabButtonSettingsState extends State<TabButtonSettings> {
-  Widget settingContainer(String filePath, String text) {
+  Widget settingContainer(String filePath, String text, Widget screen) {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => moveTo(
-              const SignedInUserHomeScreen(
-                  imagePath: "assets/images/signed_in_image.png"),
-              context),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => screen),
+          ),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -43,9 +46,10 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
                   Text(
                     text,
                     style: TextStyle(
-                        color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),
@@ -75,13 +79,19 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
                     )),
               ),
               addHeight(30),
-              settingContainer("assets/images/home.png", 'Home'),
-              settingContainer("assets/images/send.png", 'Requests'),
-              settingContainer("assets/images/bell.png", 'Notifications'),
-              settingContainer("assets/images/clock.png", 'History'),
+              settingContainer("assets/images/home.png", 'Home',
+                  SignedInUserHomeScreen(imagePath: signedInScreenImage)),
+              settingContainer(
+                  "assets/images/send.png", 'Requests', const RequestsScreen()),
+              settingContainer("assets/images/bell.png", 'Notifications',
+                  const NotificationScreen()),
+              settingContainer(
+                  "assets/images/clock.png", 'History', const RequestsScreen()),
               const Spacer(),
-              settingContainer("assets/images/settings.png", 'Settings'),
-              settingContainer("assets/images/log-out.png", 'LogOut'),
+              settingContainer("assets/images/settings.png", 'Settings',
+                  const SettingsScreen()),
+              settingContainer("assets/images/log-out.png", 'LogOut',
+                  const RequestsScreen()),
             ],
           ),
         ),

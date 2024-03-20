@@ -48,15 +48,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-
-            },
-            icon: Icon(
-              size: 25,
-              Icons.arrow_back,
-              color: Theme.of(context).colorScheme.onBackground,
-            )),
+        leading: null,
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(
@@ -78,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 children: [
                   GestureDetector(
-                  onTap: () => moveTo(const ProfilDetail(),context),
+                    onTap: () => moveTo(const ProfilDetail(), context),
                     child: Container(
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -129,17 +121,16 @@ class ProfileScreen extends StatelessWidget {
                     "Settings and preferences",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: 17,fontWeight: FontWeight.bold),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
-                                    addHeight(20),
-
+                  addHeight(20),
                   profileContainers(
                       imagePath: "assets/images/notifications_profile.png",
                       text: "Notifcations",
                       context: context),
-                                        addHeight(10),
-
-                           profileContainers(
+                  addHeight(10),
+                  profileContainers(
                       imagePath: "assets/images/settings_icon.png",
                       text: "Settings",
                       context: context),
@@ -149,10 +140,10 @@ class ProfileScreen extends StatelessWidget {
                     "Support",
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontSize: 17,fontWeight: FontWeight.bold),
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),
                   ),
-                                    addHeight(20),
-
+                  addHeight(20),
                   profileContainers(
                       imagePath: "assets/images/clipboardtext.png",
                       text: "Help Centre",

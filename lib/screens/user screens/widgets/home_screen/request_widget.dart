@@ -13,7 +13,7 @@ class RequestWidget extends StatelessWidget {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(width: 80, height: 80, child: Image.asset(imagePath)),
             Column(
@@ -43,7 +43,6 @@ class RequestWidget extends StatelessWidget {
                 )
               ],
             ),
-            addWidth(10),
             Text(
               "-\$$amount",
               style: TextStyle(

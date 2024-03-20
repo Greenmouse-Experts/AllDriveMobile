@@ -5,25 +5,26 @@ import 'package:roadside_heroes_app/screens/request_assistance.dart';
 class NavigationWidget extends StatelessWidget {
   const NavigationWidget({super.key});
 
-  Widget imageContainer(String imagePath, String text, context) {
+  Widget imageContainer(
+      String imagePath, String text, context, BoxConstraints constraint) {
     return GestureDetector(
       onTap: () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => SignUpScreen(),
+        builder: (context) => const SignUpScreen(),
       )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 60,
-            height: 60,
+            width: constraint.maxWidth * 0.15,
+            height: 80,
             child: Image.asset(
               imagePath,
-              fit: BoxFit.contain,
+              fit: BoxFit.cover,
             ),
           ),
           Text(
             text,
-            style: const TextStyle(fontSize: 11),
+            style: const TextStyle(fontSize: 12),
           )
         ],
       ),
@@ -34,47 +35,50 @@ class NavigationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              imageContainer(
-                  "assets/images/Frame 1000009955.png", "Towing", context),
-              addWidth(7),
-              imageContainer("assets/images/Frame 1000009957.png",
-                  "Fuel Delivery", context),
-              addWidth(7),
-              imageContainer(
-                  "assets/images/Frame 1000009959.png", "Car Repair", context),
-              addWidth(7),
-              imageContainer(
-                  "assets/images/Frame 1000009961.png", "Tire Change", context),
-              addWidth(7),
-              imageContainer(
-                  "assets/images/Frame 1000009963.png", "Jump Start", context),
-            ],
-          ),
-          addHeight(15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              imageContainer("assets/images/row1.png", "Tire Pump", context),
-              addWidth(7),
-              imageContainer("assets/images/Frame 1000009957 (1).png",
-                  "Car Lockout", context),
-              addWidth(7),
-              imageContainer("assets/images/Frame 1000009959 (1).png",
-                  "Oil Leakage", context),
-              addWidth(7),
-              imageContainer("assets/images/Frame 1000009961 (1).png",
-                  "Key Replace", context),
-              addWidth(7),
-              imageContainer(
-                  "assets/images/Frame 1000009963 (1).png", "Battery", context),
-            ],
-          )
-        ],
+      child: LayoutBuilder(
+        builder: (context, constraints) => Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                imageContainer("assets/images/Frame 1000009955.png", "Towing",
+                    context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009957.png",
+                    "Fuel Delivery", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009959.png",
+                    "Car Repair", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009961.png",
+                    "Tire Change", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009963.png",
+                    "Jump Start", context, constraints),
+              ],
+            ),
+            addHeight(15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                imageContainer("assets/images/row1.png", "Tire Pump", context,
+                    constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009957 (1).png",
+                    "Car Lockout", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009959 (1).png",
+                    "Oil Leakage", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009961 (1).png",
+                    "Key Replace", context, constraints),
+                addWidth(7),
+                imageContainer("assets/images/Frame 1000009963 (1).png",
+                    "Battery", context, constraints),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

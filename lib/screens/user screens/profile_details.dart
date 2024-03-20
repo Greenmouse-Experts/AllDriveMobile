@@ -1,8 +1,4 @@
-import 'dart:developer';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/images_data.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
@@ -182,8 +178,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
                   ),
                   const Text(
                     "First Name",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(100, 116, 139, 1.0)),
+                    style: TextStyle(color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -191,15 +186,16 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       width: screenWidth * 0.9,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F5F9),
+                        color: const Color(0xFFF1F5F9),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
                         child: TextFormField(
                           enabled: isEditing,
                           initialValue: 'Victor',
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: InputBorder.none,
                           ),
                           keyboardType: TextInputType.name,
@@ -212,8 +208,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
                   addHeight(10),
                   const Text(
                     "Last Name",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(100, 116, 139, 1.0)),
+                    style: TextStyle(color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -221,15 +216,16 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       width: screenWidth * 0.9,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F5F9),
+                        color: const Color(0xFFF1F5F9),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
                         child: TextFormField(
                           enabled: isEditing,
                           initialValue: 'Okatta',
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: InputBorder.none,
                           ),
                           keyboardType: TextInputType.name,
@@ -242,8 +238,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
                   addHeight(10),
                   const Text(
                     "Email Adress",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(100, 116, 139, 1.0)),
+                    style: TextStyle(color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -251,20 +246,20 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       width: screenWidth * 0.9,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F5F9),
+                        color: const Color(0xFFF1F5F9),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: SizedBox(
                               width: constraints.maxWidth * 0.7,
                               child: TextFormField(
                                 obscureText: isEmailTextObscure,
                                 enabled: isEditing,
                                 initialValue: 'viktoh@gmail.com',
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                                 keyboardType: TextInputType.name,
@@ -297,8 +292,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
                   addHeight(10),
                   const Text(
                     "Resedential Address",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(100, 116, 139, 1.0)),
+                    style: TextStyle(color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -306,15 +300,16 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       width: screenWidth * 0.9,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F5F9),
+                        color: const Color(0xFFF1F5F9),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 15),
                         child: TextFormField(
                           enabled: isEditing,
                           initialValue: 'Queens park avenue new york',
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: InputBorder.none,
                           ),
                           keyboardType: TextInputType.name,
@@ -327,8 +322,7 @@ class _ProfilDetailState extends State<ProfilDetail> {
                   addHeight(10),
                   const Text(
                     "Password",
-                    style: const TextStyle(
-                        color: Color.fromRGBO(100, 116, 139, 1.0)),
+                    style: TextStyle(color: Color.fromRGBO(100, 116, 139, 1.0)),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 10),
@@ -336,20 +330,20 @@ class _ProfilDetailState extends State<ProfilDetail> {
                       width: screenWidth * 0.9,
                       height: 60,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F5F9),
+                        color: const Color(0xFFF1F5F9),
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: SizedBox(
                               width: constraints.maxWidth * 0.7,
                               child: TextFormField(
                                 obscureText: isPasswordTextObscure,
                                 enabled: isEditing,
                                 initialValue: 'thatcreative_designer99',
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                 ),
                                 keyboardType: TextInputType.name,

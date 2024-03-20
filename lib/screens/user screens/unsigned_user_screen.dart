@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/navigation_widgets.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/home_search_bar_widgets.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/request_widget.dart';
 
 class UnSignedUserHomeScreen extends StatefulWidget {
   const UnSignedUserHomeScreen({super.key});
@@ -24,8 +24,6 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: GestureDetector(
@@ -36,30 +34,33 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
             child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 10, right: 10),
-                    child: AppBarWidget(
-                      imagePath: "assets/images/Frame 1000009840.png",
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40),
+              LayoutBuilder(
+                builder: (context, constraints) => Padding(
+                  padding: EdgeInsets.only(top: 30, left: 10, right: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      AppBarWidget(
+                          imagePath: AppImages.unsignedImgeProfile,
+                          constraint: constraints),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                            backgroundColor: const Color(0xFF172748),
+                            fixedSize: const Size(50, 60)),
+                        onPressed: () {},
+                        child: const Icon(
+                          Icons.menu_sharp,
+                          color: Color(0xFFFCEFE2),
+                          size: 30,
                         ),
-                        backgroundColor: const Color(0xFF172748),
-                        fixedSize: const Size(50, 60)),
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.menu_sharp,
-                      color: Color(0xFFFCEFE2),
-                      size: 30,
-                    ),
-                  )
-                ],
+                      )
+                    ],
+                  ),
+                ),
               ),
               addHeight(5),
               const AdWidget(),

@@ -8,6 +8,8 @@ class AppImages {
   static const String profile_details_closed_password =
       "assets/images/mdi_eye-lock-outline.png";
   static const String chat_icon_nav_bar = "assets/images/gridicons_chat-2.png";
+  static const String unsignedImgeProfile =
+      "assets/images/Frame 1000009840.png";
 
   // Add more image paths as needed
 }

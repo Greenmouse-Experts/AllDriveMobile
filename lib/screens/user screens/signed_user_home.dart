@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/tab_settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
@@ -22,39 +23,46 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 20, left: 10, right: 10),
-                    child: AppBarWidget(
-                      imagePath: "assets/images/signed_in_image.png",
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40),
+              LayoutBuilder(
+                builder: (context, constraints) => Padding(
+                  padding: EdgeInsets.only(top: 30, left: 10, right: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      AppBarWidget(
+                          imagePath: "assets/images/signed_in_image.png",
+                          constraint: constraints),
+                      addWidth(constraints.maxWidth * 0.15),
+                      SizedBox(
+                        width: 55,
+                        height: 55,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              backgroundColor: const Color(0xFF172748),
+                              fixedSize: const Size(50, 50)),
+                          onPressed: () =>
+                              moveTo(const TabButtonSettings(), context),
+                          child: const Icon(
+                            Icons.menu_sharp,
+                            color: Color(0xFFFCEFE2),
+                            size: 30,
+                          ),
                         ),
-                        backgroundColor: const Color(0xFF172748),
-                        fixedSize: const Size(50, 60)),
-                    onPressed: () => moveTo(const TabButtonSettings(), context),
-                    child: const Icon(
-                      Icons.menu_sharp,
-                      color: Color(0xFFFCEFE2),
-                      size: 30,
-                    ),
-                  )
-                ],
+                      )
+                    ],
+                  ),
+                ),
               ),
               addHeight(10),
               const AdWidget(),

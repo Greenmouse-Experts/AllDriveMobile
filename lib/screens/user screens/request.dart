@@ -13,7 +13,7 @@ class RequestsScreen extends StatelessWidget {
       children: [
         Container(
           width: constraints.maxWidth,
-          height: constraints.maxHeight * 0.2,
+          height: constraints.maxHeight * 0.23,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5), color: Colors.white),
           child: Padding(
@@ -39,7 +39,7 @@ class RequestsScreen extends StatelessWidget {
                         ),
                         addHeight(2),
                         SizedBox(
-                          width: constraints.maxWidth * 0.72,
+                          width: constraints.maxWidth * 0.6,
                           child: Text(
                             address,
                             overflow: TextOverflow.ellipsis,
