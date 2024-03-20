@@ -1,21 +1,24 @@
-import 'package:auto_size_text/auto_size_text.dart';
+// ignore_for_file: file_names
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:roadside_heroes_app/constants.dart';
+
 
 class AppBarWidget extends StatelessWidget {
   final String imagePath;
   final BoxConstraints constraint;
+  final bool isignedIn;
 
   const AppBarWidget({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.constraint,
-  }) : super(key: key);
+  required this.isignedIn
+  });
+
 
   @override
   Widget build(BuildContext context) {
     double appBarHeight = 60;
-    double screenWidth = MediaQuery.of(context).size.width;
 
     // Calculate the maximum font size based on available space
 
@@ -24,7 +27,7 @@ class AppBarWidget extends StatelessWidget {
       constraints: BoxConstraints(
         maxWidth: constraint.maxWidth * 0.7,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(appBarHeight / 2),
         color: const Color(0xFFFCEFE2),
@@ -42,9 +45,9 @@ class AppBarWidget extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(width: 10),
-          FittedBox(
-            fit: BoxFit.scaleDown,
+          const SizedBox(width: 10),
+          const FittedBox(
+            fit: BoxFit.fitWidth,
             child: Text("Good morning dwaelo"),
           )
         ],

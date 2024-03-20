@@ -185,7 +185,7 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
                 fit: BoxFit.contain,
               ),
             ),
-            label: 'Terms andconditions',
+            label: 'Terms and Conditions',
           ),
           BottomNavigationBarItem(
               activeIcon: SizedBox(
@@ -204,7 +204,7 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
                   fit: BoxFit.contain,
                 ),
               ),
-              label: 'about the app'),
+              label: 'About'),
         
         ],
       ),

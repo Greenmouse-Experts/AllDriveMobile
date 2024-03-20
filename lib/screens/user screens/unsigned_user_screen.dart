@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/navigation_widgets.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/home_search_bar_widgets.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/request_widget.dart';
 
 class UnSignedUserHomeScreen extends StatefulWidget {
   const UnSignedUserHomeScreen({super.key});
@@ -37,35 +37,29 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
             children: [
               LayoutBuilder(
                 builder: (context, constraints) => Padding(
-                  padding: EdgeInsets.only(top: 30, left: 10, right: 10),
+                  padding: EdgeInsets.only(top: 20, left: 10, right: 10),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       AppBarWidget(
-                          imagePath: AppImages.unsignedImgeProfile,
+                          imagePath: AppImages.appLogo,
+                          isignedIn: false,
                           constraint: constraints),
-                                                addWidth(constraints.maxWidth * 0.05),
-
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(40),
-                            ),
-                            backgroundColor: const Color(0xFF172748),
-                            fixedSize: const Size(50, 60)),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.menu_sharp,
-                          color: Color(0xFFFCEFE2),
-                          size: 30,
-                        ),
-                      )
+                      addWidth(constraints.maxWidth * 0.05),
+                  GestureDetector(
+                    onTap: () {
+                      showAlertDialog(context);
+                    },
+                    child: Container(
+                    height: 60,
+                      width: 60,
+                      child: Image.asset(AppImages.unsignedImgeProfile),),
+                  )
                     ],
                   ),
                 ),
               ),
-              addHeight(5),
+              addHeight(20),
               const AdWidget(),
               addHeight(20),
               pageDivider(),
@@ -75,7 +69,6 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                 issignedIn: false,
               ),
               pageDivider(),
-              RequestWidget(),
             ],
           ),
         )),

@@ -6,42 +6,46 @@ import 'package:roadside_heroes_app/routes/signed_home_screen_tab_navigator.dart
 import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
 
 class RequestWidget extends StatelessWidget {
-  const RequestWidget({super.key});
+  const RequestWidget({Key? key});
 
   Widget requestDetails(String imagePath, String request, String address,
-      String amount, context) {
+      String amount, BuildContext context) {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(width: 80, height: 80, child: Image.asset(imagePath)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  request,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                addHeight(5),
-                SizedBox(
-                  width: 150,
-                  child: Text(
-                    address.trim(),
-                    overflow:
-                        TextOverflow.ellipsis, // Specify overflow handling
-                    maxLines: 2,
-
-                    // Optional: Specify text alignment
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.2, // Adjust this percentage as needed
+              height: MediaQuery.of(context).size.width * 0.2, // Adjust this percentage as needed
+              child: Image.asset(imagePath, fit: BoxFit.cover),
+            ),
+            SizedBox(width: 10),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    request,
                     style: TextStyle(
-                        fontSize: 13,
-                        color: Theme.of(context).colorScheme.onBackground),
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
-                )
-              ],
+                  addHeight(5),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      address.trim(),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: TextStyle(
+                          fontSize: 13,
+                          color: Theme.of(context).colorScheme.onBackground),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Text(
               "-\$$amount",
@@ -83,7 +87,8 @@ class RequestWidget extends StatelessWidget {
                       decoration: TextDecoration.underline,
                       decorationColor: Theme.of(context)
                           .colorScheme
-                          .onBackground, // Optional: specify the underline color
+                          .onBackground,
+                      // Optional: specify the underline color
                       decorationStyle: TextDecorationStyle.solid,
                       color: Theme.of(context).colorScheme.onBackground,
                       fontSize: 15,
@@ -93,10 +98,18 @@ class RequestWidget extends StatelessWidget {
             ],
           ),
           addHeight(20),
-          requestDetails(requestImages["Car Repair"]!, "Car Repair",
-              "10 Canlish Road . 10 GuildWood Parkwat", "2000", context),
-          requestDetails(requestImages["Emergency Towing"]!, "Emergency towing",
-              "10 Canlish Road . 10 GuildWood Parkwat", "3500", context)
+          requestDetails(
+              requestImages["Car Repair"]!,
+              "Car Repair",
+              "10 Canlish Road . 10 GuildWood Parkwat",
+              "2000",
+              context),
+          requestDetails(
+              requestImages["Emergency Towing"]!,
+              "Emergency towing",
+              "10 Canlish Road . 10 GuildWood Parkwat",
+              "3500",
+              context)
         ],
       ),
     );
