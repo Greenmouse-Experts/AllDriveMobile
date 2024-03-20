@@ -5,10 +5,10 @@ import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 
 // ignore: must_be_immutable
-class TabNavigator extends StatelessWidget {
+class SignedInTabNavigator extends StatelessWidget {
   GlobalKey<NavigatorState>? navigatorKey;
   String? tabItem;
-  TabNavigator({super.key, this.navigatorKey, this.tabItem});
+  SignedInTabNavigator({super.key, this.navigatorKey, this.tabItem});
 
   @override
   Widget build(BuildContext context) {

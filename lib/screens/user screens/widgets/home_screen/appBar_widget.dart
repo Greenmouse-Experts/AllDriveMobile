@@ -1,49 +1,51 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
 class AppBarWidget extends StatelessWidget {
   final String imagePath;
   final BoxConstraints constraint;
-  const AppBarWidget(
-      {super.key, required this.imagePath, required this.constraint});
+
+  const AppBarWidget({
+    Key? key,
+    required this.imagePath,
+    required this.constraint,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double appBarHeight = 60;
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Calculate the maximum font size based on available space
+
     return Container(
-      width: constraint.maxWidth * 0.65,
-      height: 60,
+      height: appBarHeight,
+      constraints: BoxConstraints(
+        maxWidth: constraint.maxWidth * 0.7,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(appBarHeight / 2),
         color: const Color(0xFFFCEFE2),
-        // Use the hexadecimal color value here
       ),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(40),
-                  color: const Color(0xFFEB963F),
-                  // Use the hexadecimal color value here
-                ),
-                child: SizedBox(
-                    width: 25,
-                    height: 30,
-                    child: Image.asset(
-                      imagePath,
-                      fit: BoxFit.contain,
-                    ))),
+          Container(
+            width: appBarHeight - 5,
+            height: appBarHeight - 5,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(appBarHeight / 2),
+            ),
+            child: Image.asset(
+              imagePath,
+              fit: BoxFit.contain,
+            ),
           ),
-          addWidth(10),
-          const Text(
-            "Good morning, Dwaelo",
-            style: TextStyle(
-                fontSize: 14,
-                color: Color(0xFF172748),
-                fontWeight: FontWeight.bold),
+          SizedBox(width: 10),
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text("Good morning dwaelo"),
           )
         ],
       ),

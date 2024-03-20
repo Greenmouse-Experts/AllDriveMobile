@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/profile_details.dart';
 
@@ -15,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Color(0xFFEFF0F2)),
+              color: const Color(0xFFEFF0F2)),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             child: Row(
@@ -34,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
-                Icon(Icons.arrow_forward_ios_rounded)
+                const Icon(Icons.arrow_forward_ios_rounded)
               ],
             ),
           ),
@@ -108,7 +107,7 @@ class ProfileScreen extends StatelessWidget {
                               ],
                             ),
                             const Spacer(),
-                            Icon(Icons.arrow_forward_ios_rounded)
+                            const Icon(Icons.arrow_forward_ios_rounded)
                           ],
                         ),
                       ),

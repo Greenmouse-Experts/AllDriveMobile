@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/sign_in.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/unsigned_home.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/unsigned_user_screen.dart';
 
 class AuthenticationScreen extends StatefulWidget {
@@ -66,11 +67,8 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           ),
                           addHeight(40),
                           ElevatedButton(
-                            onPressed: () => Navigator.of(context)
-                                .pushReplacement(MaterialPageRoute(
-                              builder: (context) =>
-                                  const UnSignedUserHomeScreen(),
-                            )),
+                            onPressed: () => moveTo(unsignedHomeScreen(),context,),
+                            
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color.fromARGB(0, 0, 0, 0),
                               shape: RoundedRectangleBorder(

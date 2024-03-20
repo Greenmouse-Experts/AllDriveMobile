@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/images_data.dart';
 
@@ -9,11 +7,21 @@ class RequestsScreen extends StatelessWidget {
 
   Widget requestContainer(String request, String address, String amount,
       String date, BoxConstraints constraints, context, bool isMobile) {
+    double containerHeight = constraints.maxHeight * 0.22;
+    double textHeight = 80; // Approximate height of text content inside the container
+    double buttonHeight = isMobile ? 30 : 45; // Adjust button height based on device type
+
+    // Calculate the remaining space after accounting for text and button height
+    double remainingSpace = containerHeight - textHeight - 20; // 20 is the total padding applied
+
+    // Ensure the remaining space is non-negative
+    double dynamicHeight = remainingSpace > 0 ? remainingSpace : 0;
+
     return Column(
       children: [
         Container(
           width: constraints.maxWidth,
-          height: constraints.maxHeight * 0.23,
+          height: containerHeight, // Set a fixed height
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5), color: Colors.white),
           child: Padding(
@@ -104,7 +112,7 @@ class RequestsScreen extends StatelessWidget {
             ),
           ),
         ),
-        addHeight(10),
+        SizedBox(height: dynamicHeight), // Apply dynamic height
       ],
     );
   }

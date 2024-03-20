@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/images_data.dart';
-import 'package:roadside_heroes_app/routes/tab_navigator.dart';
+import 'package:roadside_heroes_app/routes/signed_home_screen_tab_navigator.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class SignedHomeScreen extends StatefulWidget {
+  const SignedHomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SignedHomeScreen> createState() => _SignedHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SignedHomeScreenState extends State<SignedHomeScreen> {
   String _currentPage = "";
   int _selectedIndex = 0;
   List<String> pageKeys = ["page1", "page2", "page3", "page4"];
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildOffStageWidgetIndicator(String tabItem) {
     return Offstage(
       offstage: _currentPage != tabItem,
-      child: TabNavigator(
+      child: SignedInTabNavigator(
         navigatorKey: _navigatorKeys[tabItem],
         tabItem: pageKeys[_selectedIndex],
       ),
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: TabNavigator(
+      body: SignedInTabNavigator(
         navigatorKey: _navigatorKeys[_currentPage],
         tabItem: pageKeys[_selectedIndex],
       ),

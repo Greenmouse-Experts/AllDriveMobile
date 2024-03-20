@@ -5,6 +5,7 @@ import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/a
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/navigation_widgets.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/home_search_bar_widgets.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/request_widget.dart';
 
 class UnSignedUserHomeScreen extends StatefulWidget {
   const UnSignedUserHomeScreen({super.key});
@@ -43,6 +44,8 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                       AppBarWidget(
                           imagePath: AppImages.unsignedImgeProfile,
                           constraint: constraints),
+                                                addWidth(constraints.maxWidth * 0.05),
+
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -68,8 +71,11 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
               pageDivider(),
               const HomeSearchBar(),
               pageDivider(),
-              const NavigationWidget(),
+              const NavigationWidget(
+                issignedIn: false,
+              ),
               pageDivider(),
+              RequestWidget(),
             ],
           ),
         )),

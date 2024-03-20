@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/tab_settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
@@ -33,12 +32,12 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
                 builder: (context, constraints) => Padding(
                   padding: EdgeInsets.only(top: 30, left: 10, right: 10),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AppBarWidget(
                           imagePath: "assets/images/signed_in_image.png",
                           constraint: constraints),
-                      addWidth(constraints.maxWidth * 0.15),
+                      addWidth(constraints.maxWidth * 0.05),
                       SizedBox(
                         width: 55,
                         height: 55,
@@ -69,7 +68,9 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
               pageDivider(thickeness: 2),
               const HomeSearchBar(),
               pageDivider(),
-              const NavigationWidget(),
+              const NavigationWidget(
+              issignedIn: true,
+              ),
               pageDivider(thickeness: 20),
               const RequestWidget()
             ],
