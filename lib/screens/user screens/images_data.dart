@@ -11,7 +11,15 @@ class AppImages {
   static const String unsignedImgeProfile =
       "assets/images/Frame 1000009840.png";
   static const String appLogo = "assets/images/sos image.png";
-
+  static const String fuelDeliveryAlertIcon =
+      "assets/images/Frame 1000009845-4.png";
+  static const String carRepairDeliverAlertIcon =
+      "assets/images/Frame 1000009845-2.png";
+  static const String jumpStartAlertIcon =
+      "assets/images/Frame 1000009845-3.png";
+  static const String towingAlertIcon = "assets/images/Frame 1000009846-2.png";
+  static const String servicePersonnelRequestWidgetIcon =
+      "assets/images/Group 9.png";
   // Add more image paths as needed
 }
 

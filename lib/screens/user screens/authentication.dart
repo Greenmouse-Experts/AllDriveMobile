@@ -67,8 +67,10 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           ),
                           addHeight(40),
                           ElevatedButton(
-                            onPressed: () => moveTo(unsignedHomeScreen(),context,),
-                            
+                            onPressed: () => moveTo(
+                              unsignedHomeScreen(),
+                              context,
+                            ),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color.fromARGB(0, 0, 0, 0),
                               shape: RoundedRectangleBorder(

@@ -1,7 +1,7 @@
 // sign_in.dart
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/location.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/location.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -188,9 +188,12 @@ class _SignInScreenState extends State<SignInScreen> {
                                       });
                                     },
                                     child: Container(
-                                        width: isMobile ? 30 : 32,
-                                        height: isMobile ? 30 : 40,
-                                      child: Image.asset(obscureText == true ? "assets/images/password_visibility_off.png": "assets/images/password_visibility_on.png"),),
+                                      width: isMobile ? 30 : 32,
+                                      height: isMobile ? 30 : 40,
+                                      child: Image.asset(obscureText == true
+                                          ? "assets/images/password_visibility_off.png"
+                                          : "assets/images/password_visibility_on.png"),
+                                    ),
                                   ),
                                 )
                               ],

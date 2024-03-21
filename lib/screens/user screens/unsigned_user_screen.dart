@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/images_data.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/navigation_widgets.dart';
@@ -46,15 +46,16 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                           isignedIn: false,
                           constraint: constraints),
                       addWidth(constraints.maxWidth * 0.05),
-                  GestureDetector(
-                    onTap: () {
-                      showAlertDialog(context);
-                    },
-                    child: Container(
-                    height: 60,
-                      width: 60,
-                      child: Image.asset(AppImages.unsignedImgeProfile),),
-                  )
+                      GestureDetector(
+                        onTap: () {
+                          showAlertDialog(context);
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          child: Image.asset(AppImages.unsignedImgeProfile),
+                        ),
+                      )
                     ],
                   ),
                 ),

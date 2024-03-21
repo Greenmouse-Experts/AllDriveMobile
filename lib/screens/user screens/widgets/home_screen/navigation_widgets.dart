@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/request_assistance.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/request_assistance.dart';
 
 class NavigationWidget extends StatelessWidget {
   final bool issignedIn;
@@ -54,8 +54,7 @@ class NavigationWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                                    SizedBox(width: constraints.maxWidth * 0.02),
-
+                  SizedBox(width: constraints.maxWidth * 0.02),
                   imageContainer(
                     "assets/images/Frame 1000009955.png",
                     "Towing service",
@@ -85,8 +84,7 @@ class NavigationWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                                    SizedBox(width: constraints.maxWidth * 0.02),
-
+                  SizedBox(width: constraints.maxWidth * 0.02),
                   imageContainer(
                     "assets/images/Frame 1000009957 (1).png",
                     "Vehicle Lockout",

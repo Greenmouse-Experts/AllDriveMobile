@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/images_data.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 
 class ProfilDetail extends StatefulWidget {

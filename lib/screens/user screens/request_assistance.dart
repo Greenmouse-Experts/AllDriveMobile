@@ -4,12 +4,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
-import 'package:roadside_heroes_app/screens/signed_home.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
-import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/first_form_view.dart';
-import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/fourth_view.dart';
-import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/second_form_view.dart';
-import 'package:roadside_heroes_app/screens/sign_up_widgets/form_widgets/third_form_view.dart';
+import 'package:roadside_heroes_app/screens/form_widgets/first_form_view.dart';
+import 'package:roadside_heroes_app/screens/form_widgets/fourth_view.dart';
+import 'package:roadside_heroes_app/screens/form_widgets/second_form_view.dart';
+import 'package:roadside_heroes_app/screens/form_widgets/third_form_view.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);

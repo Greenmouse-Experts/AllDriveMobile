@@ -1,7 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/signed_home.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_home.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -42,15 +43,13 @@ class _LocationScreenState extends State<LocationScreen> {
                   "You'll  need to be able to enable your location in order to \n"
                   "use this app",
                   style: TextStyle(
-                    
                       color: Colors.white.withOpacity(0.4),
                       fontWeight: FontWeight.bold),
                 ),
                 addHeight(isMobile ? screenHeight * 0.2 : screenHeight * 0.3),
                 ElevatedButton(
-                  onPressed: () => moveTo(
-                     SignedHomeScreen(),
-                      context),
+                  onPressed: () =>
+                      moveTo(ServicePersonnelHomeScreen(), context),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(

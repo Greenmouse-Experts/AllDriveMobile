@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:roadside_heroes_app/screens/onboarding.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/onboarding.dart';
 import 'package:roadside_heroes_app/theme_data.dart';
 
 void main() {

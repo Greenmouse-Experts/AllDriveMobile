@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_heroes_app/onboarding_data.dart';
-import 'package:roadside_heroes_app/screens/authentication.dart';
+import 'package:roadside_heroes_app/screens/onboarding_data.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/authentication.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
