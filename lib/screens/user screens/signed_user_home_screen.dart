@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/profile.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/tab_settings.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/appBar_widget.dart';
@@ -34,10 +35,15 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      AppBarWidget(
-                          imagePath: "assets/images/signed_in_image.png",
-                          isignedIn: true,
-                          constraint: constraints),
+                      GestureDetector(
+                        onTap: () {
+                          moveTo(ProfileScreen(), context);
+                        },
+                        child: AppBarWidget(
+                            imagePath: "assets/images/signed_in_image.png",
+                            isignedIn: true,
+                            constraint: constraints),
+                      ),
                       addWidth(constraints.maxWidth * 0.05),
                       SizedBox(
                         width: 55,
@@ -69,11 +75,9 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
               pageDivider(thickeness: 2),
               const HomeSearchBar(),
               pageDivider(),
-              const NavigationWidget(
-              issignedIn: true,
-              ),
+              const NavigationWidget(),
               pageDivider(thickeness: 20),
-              const RequestWidget()
+              const RequestWidget(),
             ],
           ),
         ),

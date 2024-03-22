@@ -91,10 +91,14 @@ class RequestWidget extends StatelessWidget {
             ],
           ),
           addHeight(20),
-          requestDetails(requestImages["Car Repair"]!, "Car Repair",
+          requestDetails(userequestImages["Car Repair"]!, "Car Repair",
               "10 Canlish Road . 10 GuildWood Parkwat", "2000", context),
-          requestDetails(requestImages["Emergency Towing"]!, "Emergency towing",
-              "10 Canlish Road . 10 GuildWood Parkwat", "3500", context)
+          requestDetails(
+              userequestImages["Emergency Towing"]!,
+              "Emergency towing",
+              "10 Canlish Road . 10 GuildWood Parkwat",
+              "3500",
+              context)
         ],
       ),
     );

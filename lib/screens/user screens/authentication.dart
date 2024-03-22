@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/sign_in.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/unsigned_home.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/unsigned_user_screen.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   const AuthenticationScreen({Key? key}) : super(key: key);
@@ -48,7 +47,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                     ),
                   ),
                   Positioned(
-                    top: isMobile ? screenHeight * 0.55 : screenHeight * 0.52,
+                    top: isMobile ? screenHeight * 0.50 : screenHeight * 0.52,
                     left: isMobile ? 2 : screenWidth * 0.05,
                     right: isMobile ? 2 : screenWidth * 0.05,
                     child: SafeArea(
@@ -68,7 +67,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                           addHeight(40),
                           ElevatedButton(
                             onPressed: () => moveTo(
-                              unsignedHomeScreen(),
+                              const unsignedHomeScreen(),
                               context,
                             ),
                             style: ElevatedButton.styleFrom(

@@ -5,18 +5,16 @@ import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/request_assistance.dart';
 
 class NavigationWidget extends StatelessWidget {
-  final bool issignedIn;
-  const NavigationWidget({super.key, required this.issignedIn});
+  const NavigationWidget({super.key});
 
   Widget imageContainer(
       String imagePath, String text, context, BoxConstraints constraint) {
     return GestureDetector(
       onTap: () {
-        if (issignedIn) {
-          moveTo(SignUpScreen(), context);
-          return;
-        }
-        showAlertDialog(context);
+        Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+          builder: (context) => const SignUpScreen(),
+        ));
+        return;
       },
       child: Container(
         width: constraint.maxWidth * 0.26,

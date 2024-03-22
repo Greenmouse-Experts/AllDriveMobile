@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/pending_widget.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/request_servicepersonnel.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/request_service_personnel.dart';
 
 class StackOver extends StatefulWidget {
   final BoxConstraints constraints;
@@ -30,12 +30,11 @@ class _StackOverState extends State<StackOver>
   Widget build(BuildContext context) {
     return Container(
       width: widget.constraints.maxWidth * 0.9,
-      height: widget.constraints.maxHeight * 0.5,
+      height: widget.constraints.maxHeight * 0.51,
       child: Column(
         children: [
           // give the tab bar a height [can change hheight to preferred height]
           Container(
-            height: 60,
             decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.onBackground,
                 borderRadius: BorderRadius.circular(
@@ -85,27 +84,27 @@ class _StackOverState extends State<StackOver>
                   SingleChildScrollView(
                     child: Column(
                       children: [
-                        ServicePersonnelRequestScreen(
+                        ServicePersonnelRequestWidget(
                           request: "Car Repair",
                           address: "10 Canlish Road . 10 GuildWood Parkwat",
                           constraints: widget.constraints,
                         ),
-                        ServicePersonnelRequestScreen(
+                        ServicePersonnelRequestWidget(
                           request: "Car Repair",
                           address: "10 Canlish Road . 10 GuildWood Parkwat",
                           constraints: widget.constraints,
                         ),
-                        ServicePersonnelRequestScreen(
+                        ServicePersonnelRequestWidget(
                           request: "Car Repair",
                           address: "10 Canlish Road . 10 GuildWood Parkwat",
                           constraints: widget.constraints,
                         ),
-                        ServicePersonnelRequestScreen(
+                        ServicePersonnelRequestWidget(
                           request: "Car Repair",
                           address: "10 Canlish Road . 10 GuildWood Parkwat",
                           constraints: widget.constraints,
                         ),
-                        ServicePersonnelRequestScreen(
+                        ServicePersonnelRequestWidget(
                           request: "Car Repair",
                           address: "10 Canlish Road . 10 GuildWood Parkwat",
                           constraints: widget.constraints,
@@ -115,9 +114,35 @@ class _StackOverState extends State<StackOver>
                   ),
 
                   // second tab bar view widget
-                  const SingleChildScrollView(
+                  SingleChildScrollView(
                       child: Column(
-                    children: [PendingWidget()],
+                    children: [
+                      PendingWidget(
+                        constraints: widget.constraints,
+                        request: "Car Repair",
+                        address: "1 Check Inn Close, 200285 Queens Ave",
+                      ),
+                      PendingWidget(
+                        constraints: widget.constraints,
+                        request: "Emergency Towing",
+                        address: "1 Check Inn Close, 200285 Queens Ave",
+                      ),
+                      PendingWidget(
+                        constraints: widget.constraints,
+                        request: "Fuel Delivery",
+                        address: "1 Check Inn Close, 200285 Queens Ave",
+                      ),
+                      PendingWidget(
+                        constraints: widget.constraints,
+                        request: "Jump Start",
+                        address: "1 Check Inn Close, 200285 Queens Ave",
+                      ),
+                      PendingWidget(
+                        constraints: widget.constraints,
+                        request: "Jump Start",
+                        address: "Ring Road, Evian, Benin City.",
+                      ),
+                    ],
                   )),
                 ],
               ),

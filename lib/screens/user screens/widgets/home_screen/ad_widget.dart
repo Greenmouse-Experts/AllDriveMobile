@@ -17,8 +17,7 @@ class _AdWidgetState extends State<AdWidget>
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child:
-              Image.asset("assets/images/ad_background.png"),
+          child: Image.asset("assets/images/ad_background.png"),
         ),
         Positioned(
           left: 20,

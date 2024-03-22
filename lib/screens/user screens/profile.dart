@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                                 const Text(
                                   "Victor Okatta",
                                   style: TextStyle(
-                                    color: const Color(0xFFBDBDBD),
+                                    color: Color(0xFFBDBDBD),
                                   ),
                                 ),
                               ],

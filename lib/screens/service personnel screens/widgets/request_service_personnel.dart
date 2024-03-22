@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
-class ServicePersonnelRequestScreen extends StatelessWidget {
+class ServicePersonnelRequestWidget extends StatelessWidget {
   final String request;
   final String address;
   final BoxConstraints constraints;
 
-  const ServicePersonnelRequestScreen({
+  const ServicePersonnelRequestWidget({
     Key? key,
     required this.request,
     required this.address,

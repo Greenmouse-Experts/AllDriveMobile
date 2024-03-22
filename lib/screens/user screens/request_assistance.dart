@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
@@ -187,7 +185,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 0.15,
                                         height: 45,
                                         child: Image.asset(
-                                          stepImages['first step']!,
+                                          stepImages['complete second step']!,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -208,9 +206,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 0.15,
                                         height: 45,
                                         child: Image.asset(
-                                          stepImages[index > 0
-                                              ? 'complete second step'
-                                              : 'incomplete second step']!,
+                                          stepImages['first step']!,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -280,7 +276,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       body = ThirdFormView(),
                       addHeight(15),
                     ],
-                    if (index == 3) ...[
+                    if (index >= 3) ...[
                       body = FourthFormView(),
                       addHeight(10),
                     ],

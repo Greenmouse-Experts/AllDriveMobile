@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
@@ -27,52 +26,54 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).unfocus();
-        },
-        child: SafeArea(
-            child: SingleChildScrollView(
-          child: Column(
-            children: [
-              LayoutBuilder(
-                builder: (context, constraints) => Padding(
-                  padding: EdgeInsets.only(top: 20, left: 10, right: 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      AppBarWidget(
-                          imagePath: AppImages.appLogo,
-                          isignedIn: false,
-                          constraint: constraints),
-                      addWidth(constraints.maxWidth * 0.05),
-                      GestureDetector(
-                        onTap: () {
-                          showAlertDialog(context);
-                        },
-                        child: Container(
-                          height: 60,
-                          width: 60,
-                          child: Image.asset(AppImages.unsignedImgeProfile),
-                        ),
-                      )
-                    ],
-                  ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          AppBarWidget(
+                            imagePath: AppImages.appLogo,
+                            isignedIn: false,
+                            constraint: constraints,
+                          ),
+                          addWidth(constraints.maxWidth * 0.05),
+                          GestureDetector(
+                            onTap: () {
+                              showAlertDialog(context);
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 60,
+                              child: Image.asset(AppImages.unsignedImgeProfile),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    addHeight(20),
+                    AdWidget(),
+                    addHeight(20),
+                    pageDivider(),
+                    const HomeSearchBar(),
+                    pageDivider(),
+                    const NavigationWidget(),
+                    pageDivider(),
+                  ],
                 ),
               ),
-              addHeight(20),
-              const AdWidget(),
-              addHeight(20),
-              pageDivider(),
-              const HomeSearchBar(),
-              pageDivider(),
-              const NavigationWidget(
-                issignedIn: false,
-              ),
-              pageDivider(),
-            ],
-          ),
-        )),
+            ),
+          );
+        },
       ),
     );
   }

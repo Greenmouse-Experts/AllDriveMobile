@@ -12,7 +12,9 @@ final appTheme = ThemeData(
   scaffoldBackgroundColor: appcolorScheme.onBackground,
   appBarTheme: AppBarTheme(
     color: appcolorScheme.onBackground,
-    titleTextStyle: const TextStyle(
-        fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+    titleTextStyle: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+        color: appcolorScheme.onBackground),
   ),
 );

@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
+typedef TimerFinishedCallback = void Function();
+
 class CounterWidget extends StatefulWidget {
-  CounterWidget({Key? key}) : super(key: key);
+  final TimerFinishedCallback onTimerFinished;
+
+  const CounterWidget({Key? key, required this.onTimerFinished})
+      : super(key: key);
 
   @override
   _CounterWidgetState createState() => _CounterWidgetState();
@@ -18,7 +23,7 @@ class _CounterWidgetState extends State<CounterWidget> {
   @override
   void initState() {
     super.initState();
-    progressValue = 120;
+    progressValue = 10;
     startCountdown();
   }
 
@@ -36,6 +41,7 @@ class _CounterWidgetState extends State<CounterWidget> {
           progressValue -= 1; // Reduce progress by 1 every second
         } else {
           timer.cancel(); // Stop the timer when progress reaches 0
+          widget.onTimerFinished(); // Callback when timer finishes
         }
       });
     });
@@ -48,11 +54,11 @@ class _CounterWidgetState extends State<CounterWidget> {
         SfRadialGauge(axes: <RadialAxis>[
           RadialAxis(
             minimum: 0,
-            maximum: 120,
+            maximum: 10,
             showLabels: false,
             showTicks: false,
-            axisLineStyle: AxisLineStyle(
-              thickness: 0.1,
+            axisLineStyle: const AxisLineStyle(
+              thickness: 0.08,
               cornerStyle: CornerStyle.bothCurve,
               color: Colors.white,
               thicknessUnit: GaugeSizeUnit.factor,
@@ -68,20 +74,20 @@ class _CounterWidgetState extends State<CounterWidget> {
             annotations: <GaugeAnnotation>[
               GaugeAnnotation(
                 positionFactor: 0.1,
-                angle: 90,
+                angle: 180,
                 widget: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AutoSizeText(
                         progressValue.toStringAsFixed(0),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                         ),
                         minFontSize: 40,
                       ),
                       addHeight(10),
-                      AutoSizeText(
+                      const AutoSizeText(
                         "Seconds",
                         style: TextStyle(
                           color: Colors.white,

@@ -1,16 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/adWidget.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/requests.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/service_ad_widget.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/request_alert.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/tab_bar.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/settings.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/home_screen/ad_widget.dart';
 
 class ServicePersonnelHomeScreen extends StatefulWidget {
   const ServicePersonnelHomeScreen({Key? key}) : super(key: key);
@@ -22,7 +17,7 @@ class ServicePersonnelHomeScreen extends StatefulWidget {
 
 class _ServicePersonnelHomeScreenState
     extends State<ServicePersonnelHomeScreen> {
-  Widget settingContainer(String filePath, String text, Widget screen) {
+  Widget drawerWidget(String filePath, String text, Widget screen) {
     return Column(
       children: [
         GestureDetector(
@@ -33,7 +28,7 @@ class _ServicePersonnelHomeScreenState
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: const Color(0xFFEFF0F2),
+              color: const Color.fromARGB(125, 217, 217, 217),
             ),
             width: double.infinity,
             height: 55,
@@ -63,7 +58,7 @@ class _ServicePersonnelHomeScreenState
             ),
           ),
         ),
-        addHeight(40),
+        addHeight(30),
       ],
     );
   }
@@ -85,17 +80,19 @@ class _ServicePersonnelHomeScreenState
       ),
       body: LayoutBuilder(builder: (context, constraints) {
         return Padding(
-          padding: EdgeInsets.symmetric(vertical: 15),
+          padding: const EdgeInsets.symmetric(vertical: 15),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                   width: double.infinity,
-                  height: constraints.maxHeight * 0.15,
+                  height: constraints.maxHeight * 0.2,
                   child: ListView.builder(
                     itemCount: 3,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return ServiceHomeAdWidget();
+                      return ServiceHomeAdWidget(
+                        constraint: constraints,
+                      );
                     },
                   )),
               addHeight(15),
@@ -144,29 +141,30 @@ class _ServicePersonnelHomeScreenState
           return Drawer(
             backgroundColor: Theme.of(context).colorScheme.onBackground,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: LayoutBuilder(
                 builder: (context, constraints) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       width: constraints.maxWidth * 0.5,
+                      height: constraints.maxHeight * 0.2,
                       child: Image.asset(AppImages.appLogo),
                     ),
-                    addHeight(30),
-                    settingContainer("assets/images/home.png", 'Home',
-                        SignedInUserHomeScreen(imagePath: signedInScreenImage)),
-                    settingContainer("assets/images/send.png", 'Requests',
-                        const RequestsScreen()),
-                    settingContainer("assets/images/bell.png", 'Notifications',
-                        const NotificationScreen()),
-                    settingContainer("assets/images/clock.png", 'History',
-                        const RequestsScreen()),
-                    settingContainer("assets/images/settings.png", 'Settings',
-                        const SettingsScreen()),
-                    settingContainer("assets/images/log-out.png", 'LogOut',
-                        const RequestsScreen()),
+                    addHeight(25),
+                    drawerWidget("assets/images/home.png", 'Home',
+                        const ServicePersonnelHomeScreen()),
+                    drawerWidget("assets/images/send.png", 'Requests',
+                        const ServicePersonnelRequestScreen()),
+                    drawerWidget("assets/images/bell.png", 'Notifications',
+                        const userNotificationScreen()),
+                    drawerWidget("assets/images/clock.png", 'History',
+                        const ServicePersonnelHomeScreen()),
+                    drawerWidget("assets/images/settings.png", 'Settings',
+                        const ServicePersonnelHomeScreen()),
+                    drawerWidget("assets/images/log-out.png", 'LogOut',
+                        const ServicePersonnelHomeScreen()),
                   ],
                 ),
               ),

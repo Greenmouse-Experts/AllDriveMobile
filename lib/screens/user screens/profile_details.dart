@@ -19,15 +19,13 @@ class _ProfilDetailState extends State<ProfilDetail> {
 
   void showModalDialog(BuildContext context, double screenWidth) {
     showModalBottomSheet(
+      useRootNavigator: true,
       context: context,
       builder: (BuildContext context) {
         return Container(
           width: double.infinity,
-          height: 400,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: const Color.fromARGB(255, 20, 36, 76),
-          ),
+          height: 300,
+          color: const Color.fromARGB(255, 20, 36, 76),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

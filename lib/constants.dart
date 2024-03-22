@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
@@ -42,7 +44,6 @@ Widget pageDivider({double thickeness = 10}) {
   );
 }
 
-// ignore: constant_identifier_names
 enum MenuAction {
   mark_all_as_read,
   filter_unread,
@@ -54,38 +55,38 @@ void showAlertDialog(BuildContext context) {
     builder: (BuildContext context) {
       return Platform.isIOS
           ? CupertinoAlertDialog(
-              title: Text("Sign In Required"),
-              content: Text("You have to sign in."),
+              title: const Text("Sign In Required"),
+              content: const Text("You have to sign in."),
               actions: <Widget>[
                 CupertinoDialogAction(
                   onPressed: () {
                     Navigator.of(context).pop(); // Dismiss the dialog
                   },
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 CupertinoDialogAction(
                   onPressed: () {
-                    moveTo(SignInScreen(), context); // Dismiss the dialog
+                    moveTo(const SignInScreen(), context); // Dismiss the dialog
                   },
-                  child: Text("Sign In"),
+                  child: const Text("Sign In"),
                 ),
               ],
             )
           : AlertDialog(
-              title: Text("Sign In Required"),
-              content: Text("You have to sign in."),
+              title: const Text("Sign In Required"),
+              content: const Text("You have to sign in."),
               actions: <Widget>[
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).pop(); // Dismiss the dialog
                   },
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 TextButton(
                   onPressed: () {
-                    moveTo(SignInScreen(), context); // Dismiss the dialog
+                    moveTo(const SignInScreen(), context); // Dismiss the dialog
                   },
-                  child: Text("Sign In"),
+                  child: const Text("Sign In"),
                 ),
               ],
             );

@@ -20,10 +20,34 @@ class AppImages {
   static const String towingAlertIcon = "assets/images/Frame 1000009846-2.png";
   static const String servicePersonnelRequestWidgetIcon =
       "assets/images/Group 9.png";
-  // Add more image paths as needed
+  static const String servicePersonnelRequestImage =
+      "assets/images/personnel_request_image.png";
+  static const String servicePersonnelLocationIcon =
+      "assets/images/mingcute_location-fill.png";
+  static const String servicePersonnelViewDetailsIcon =
+      "assets/images/tabler_location.png";
+  static const String servicePersonnelSendQuotationIcon =
+      "assets/images/iconamoon_invoice.png";
+
+  static const String servicePersonnelPhoneNumberIcon =
+      "assets/images/ph_phone-fill.png";
+  static Map<String, String> pendingImages = {
+    "Car Repair": "assets/images/car-01.png",
+    "Emergency Towing": "assets/images/material-symbols_auto-towing.png",
+    "Fuel Delivery": "assets/images/mdi_fuel.png",
+    "Jump Start": "assets/images/material-symbols_cable.png",
+  };
+  static const String servicePersonnelProfileCompanyIcon =
+      "assets/images/gift.png";
+  static const String servicePersonnelProfileNotificationIcon =
+      "assets/images/Vector 2.png";
+  static const String servicePersonneProfilelHelpCentreIcon =
+      "assets/images/Vector.png";
+  static const String servicePersonnelProfileSettingsIcon =
+      "assets/images/securitysafe.png";
 }
 
-Map<String, String> requestImages = {
+Map<String, String> userequestImages = {
   "Car Repair": "assets/images/car_repair.png",
   "Emergency Towing": "assets/images/emergency_towing.png",
 };

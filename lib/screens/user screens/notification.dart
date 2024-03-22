@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 
-class NotificationScreen extends StatefulWidget {
-  const NotificationScreen({super.key});
+class userNotificationScreen extends StatefulWidget {
+  const userNotificationScreen({super.key});
 
   @override
-  State<NotificationScreen> createState() => _NotificationScreenState();
+  State<userNotificationScreen> createState() => _userNotificationScreenState();
 }
 
 Widget menuButton(context) {
@@ -54,7 +53,7 @@ Widget menuButton(context) {
   );
 }
 
-class _NotificationScreenState extends State<NotificationScreen> {
+class _userNotificationScreenState extends State<userNotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

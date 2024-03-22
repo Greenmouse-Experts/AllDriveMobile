@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/routes/signed_home_screen_tab_navigator.dart';
 
@@ -35,74 +36,103 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
     BuildContext context,
   ) {
     showModalBottomSheet(
+      backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       context: context,
       builder: (BuildContext context) {
         return Container(
-          height: 200,
-          width: double.infinity,
+          height: getScreenHeight(context) * 0.25,
+          width: getScreenWidth(context),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(30),
             color: const Color.fromARGB(255, 20, 36, 76),
           ),
-          child: Center(
-            child: Container(
-              decoration: BoxDecoration(
-                  color:
-                      const Color.fromARGB(255, 134, 132, 132).withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(20)),
-              width: 300,
-              height: 150,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: Row(
-                        children: [
-                          const Text(
-                            "Notifications",
-                            style: TextStyle(fontSize: 18, color: Colors.white),
+          child: LayoutBuilder(builder: (context, constraints) {
+            return Center(
+              child: Container(
+                height: constraints.maxHeight * 0.7,
+                width: constraints.maxWidth * 0.9,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(65, 239, 239, 239)
+                        .withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 20),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              Navigator.of(context).pop();
+                              _selectedIndex = 1;
+                              _currentPage = pageKeys[_selectedIndex];
+                            });
+                          },
+                          child: Row(
+                            children: [
+                              const Text(
+                                "Notifications",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const Spacer(),
+                              SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: Image.asset(
+                                      "assets/images/more_notifications_icon.png")),
+                            ],
                           ),
-                          const Spacer(),
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  "assets/images/more_notifications_icon.png")),
-                        ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Divider(
-                        height: 5,
-                        color: Colors.grey[400],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Divider(
+                          height: 5,
+                          color: Colors.grey[400],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          const Text(
-                            "Settings",
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                          ),
-                          const Spacer(),
-                          Container(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  "assets/images/more_settings_icon.png")),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 20),
+                        child: Row(
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  Navigator.of(context).pop();
+
+                                  _selectedIndex = 3;
+                                  _currentPage = pageKeys[_selectedIndex];
+                                });
+                              },
+                              child: const Text(
+                                "Settings",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            const Spacer(),
+                            SizedBox(
+                                width: 30,
+                                height: 30,
+                                child: Image.asset(
+                                    "assets/images/more_settings_icon.png")),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          }),
         );
       },
     );
@@ -112,16 +142,6 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
   void initState() {
     super.initState();
     _selectPage("page1", _selectedIndex);
-  }
-
-  Widget _buildOffStageWidgetIndicator(String tabItem) {
-    return Offstage(
-      offstage: _currentPage != tabItem,
-      child: SignedInTabNavigator(
-        navigatorKey: _navigatorKeys[tabItem],
-        tabItem: pageKeys[_selectedIndex],
-      ),
-    );
   }
 
   @override
@@ -146,7 +166,12 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
           color: Theme.of(context).colorScheme.onBackground,
         ),
         onTap: (index) {
-          _selectPage(pageKeys[index], index);
+          if (index < 3) {
+            _selectPage(pageKeys[index], index);
+            return;
+          }
+
+          showModalDialog(context);
         },
         items: [
           BottomNavigationBarItem(
