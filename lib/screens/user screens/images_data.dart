@@ -45,6 +45,9 @@ class AppImages {
       "assets/images/Vector.png";
   static const String servicePersonnelProfileSettingsIcon =
       "assets/images/securitysafe.png";
+  static const String servicePersonnelFuelRequestDetailsIcon =
+      "assets/images/mdi_fuel-2.png";
+  static const String quotationRequestImage = "assets/images/Group.png";
 }
 
 Map<String, String> userequestImages = {

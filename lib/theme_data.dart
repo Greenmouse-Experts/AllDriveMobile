@@ -9,9 +9,9 @@ final containerColor = Colors.grey.withOpacity(0.3);
 final appTheme = ThemeData(
   useMaterial3: true,
   colorScheme: appcolorScheme,
-  scaffoldBackgroundColor: appcolorScheme.onBackground,
+  scaffoldBackgroundColor: Colors.white,
   appBarTheme: AppBarTheme(
-    color: appcolorScheme.onBackground,
+    color: Colors.white,
     titleTextStyle: TextStyle(
         fontSize: 15,
         fontWeight: FontWeight.bold,

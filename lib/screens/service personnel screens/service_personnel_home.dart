@@ -61,7 +61,7 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 20),
+                            horizontal: 20, vertical: 15),
                         child: GestureDetector(
                           onTap: () {
                             setState(() {

@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/request_details.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/request_quotation.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class ServicePersonnelRequestScreen extends StatefulWidget {
@@ -98,7 +100,7 @@ class _ServicePersonnelRequestScreenState
                   children: [
                     GestureDetector(
                       onTap: () {
-                        log("ss");
+                        moveTo(RequestDetailsScreen(), context);
                       },
                       child: SizedBox(
                         width: containerConstraints.maxWidth * 0.45,
@@ -131,7 +133,7 @@ class _ServicePersonnelRequestScreenState
                     addWidth(10),
                     GestureDetector(
                       onTap: () {
-                        log("tt");
+                        moveTo(QuotationRequestScreen(), context);
                       },
                       child: SizedBox(
                         width: containerConstraints.maxWidth * 0.42,
@@ -169,6 +171,7 @@ class _ServicePersonnelRequestScreenState
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.onBackground,
         elevation: 0,
         centerTitle: true,
         title: const Text(

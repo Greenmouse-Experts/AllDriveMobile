@@ -28,7 +28,7 @@ class _ServicePersonnelHomeScreenState
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: const Color.fromARGB(125, 217, 217, 217),
+              color: Color.fromARGB(255, 217, 217, 217).withOpacity(0.3),
             ),
             width: double.infinity,
             height: 55,
@@ -42,13 +42,14 @@ class _ServicePersonnelHomeScreenState
                     child: Image.asset(
                       filePath,
                       fit: BoxFit.contain,
+                      color: Colors.white,
                     ),
                   ),
                   addWidth(15),
                   Text(
                     text,
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground,
+                      color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
                     ),

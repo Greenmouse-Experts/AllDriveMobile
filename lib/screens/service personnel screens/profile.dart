@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/profile_details.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_company.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/settings.dart';
 
 import '../user screens/images_data.dart';
 
@@ -15,7 +18,9 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            movetoNextScreen(text, context);
+          },
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -47,6 +52,16 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
         addHeight(10),
       ],
     );
+  }
+
+  void movetoNextScreen(String text, BuildContext context) {
+    if (text == "Service Company") {
+      moveTo(const ServiceCompany(), context);
+    } else if (text == "Notifications") {
+      moveTo(const ServicePersonnelNotificationScreen(), context);
+    } else if (text == "Settings") {
+      moveTo(const ServicePersonnelSettingScreen(), context);
+    } else if (text == "Help Centre") {}
   }
 
   @override
