@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/profile_details.dart';
@@ -57,7 +56,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
   void movetoNextScreen(String text, BuildContext context) {
     if (text == "Service Company") {
       moveTo(const ServiceCompany(), context);
-    } else if (text == "Notifications") {
+    } else if (text == "Notifcations") {
       moveTo(const ServicePersonnelNotificationScreen(), context);
     } else if (text == "Settings") {
       moveTo(const ServicePersonnelSettingScreen(), context);

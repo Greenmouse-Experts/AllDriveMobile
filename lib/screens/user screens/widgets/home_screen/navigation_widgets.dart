@@ -16,7 +16,7 @@ class NavigationWidget extends StatelessWidget {
         ));
         return;
       },
-      child: Container(
+      child: SizedBox(
         width: constraint.maxWidth * 0.26,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +47,7 @@ class NavigationWidget extends StatelessWidget {
       child: LayoutBuilder(
         builder: (context, constraints) => Column(
           children: [
-            Container(
+            SizedBox(
               width: constraints.maxWidth * 0.9,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,7 +77,7 @@ class NavigationWidget extends StatelessWidget {
               ),
             ),
             addHeight(40),
-            Container(
+            SizedBox(
               width: constraints.maxWidth * 0.9,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

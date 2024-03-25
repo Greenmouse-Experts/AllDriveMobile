@@ -5,19 +5,22 @@ class ServicePersonnelSettingScreen extends StatelessWidget {
   const ServicePersonnelSettingScreen({super.key});
 
   Widget getListTile(String text) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListTile(
-          leading: Text(
-            text,
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+    return 
+        Padding(
+          
+    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5), // Adjusted padding
+          child: ListTile(
+                      contentPadding: EdgeInsets.zero, // Added contentPadding to remove default ListTile padding
+
+            leading: Text(
+              text,
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios),
           ),
-          trailing: Icon(Icons.arrow_forward_ios),
-        ),
-        addHeight(8),
-      ],
-    );
+        );
+    
+  
   }
 
   @override

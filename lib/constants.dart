@@ -36,11 +36,12 @@ double getScreenHeight(BuildContext context) {
   return MediaQuery.of(context).size.height;
 }
 
-Widget pageDivider({double thickeness = 10}) {
+Widget pageDivider({double thickeness = 10 , color}) {
   double thickness = thickeness;
   return Divider(
+      
     thickness: thickness,
-    color: const Color(0xFFF4F4F4),
+    color: color ??  const Color(0xFFF4F4F4),
   );
 }
 
@@ -93,3 +94,5 @@ void showAlertDialog(BuildContext context) {
     },
   );
 }
+
+enum NotificationCategory{booking,promotion,transaction,cancelled}

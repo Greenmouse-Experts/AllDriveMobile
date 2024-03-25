@@ -41,7 +41,7 @@ class ServiceProvidersWidget extends StatelessWidget {
             ),
             title: Text(
               RandomTextGenerator.generateRandomText(),
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ), // Random text
             trailing: Checkbox(
               value: false, // Example value, replace with your logic

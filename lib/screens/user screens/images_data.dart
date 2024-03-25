@@ -1,3 +1,4 @@
+
 class AppImages {
   static const String logo = 'assets/images/logo.png';
   static const String background = 'assets/images/background.png';
@@ -46,8 +47,15 @@ class AppImages {
   static const String servicePersonnelProfileSettingsIcon =
       "assets/images/securitysafe.png";
   static const String servicePersonnelFuelRequestDetailsIcon =
-      "assets/images/mdi_fuel-2.png";
+      "assets/images/mdi_fuel-2.png";  static const String appLogoForWhiteBackground =
+      "assets/images/app logo white background.png";
   static const String quotationRequestImage = "assets/images/Group.png";
+   static Map<String, String> servicePersonnelNotificationImages = {
+    "Promotion": "assets/images/promo.png",
+    "System booking": "assets/images/Shape.png",
+    "System transaction": "assets/images/notification.png",
+    "System cancelled": "assets/images/Shape (1).png",
+  };
 }
 
 Map<String, String> userequestImages = {

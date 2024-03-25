@@ -69,7 +69,7 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
                             style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                           const Spacer(),
-                          Container(
+                          SizedBox(
                               width: 30,
                               height: 30,
                               child: Image.asset(
@@ -93,7 +93,7 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
                             style: TextStyle(fontSize: 20, color: Colors.white),
                           ),
                           const Spacer(),
-                          Container(
+                          SizedBox(
                               width: 30,
                               height: 30,
                               child: Image.asset(

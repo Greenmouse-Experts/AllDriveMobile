@@ -28,7 +28,7 @@ class _ServicePersonnelHomeScreenState
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Color.fromARGB(255, 217, 217, 217).withOpacity(0.3),
+              color: Color.fromARGB(255, 217, 217, 217).withOpacity(0.2),
             ),
             width: double.infinity,
             height: 55,

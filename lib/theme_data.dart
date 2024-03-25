@@ -13,7 +13,7 @@ final appTheme = ThemeData(
   appBarTheme: AppBarTheme(
     color: Colors.white,
     titleTextStyle: TextStyle(
-        fontSize: 15,
+        fontSize: 18,
         fontWeight: FontWeight.bold,
         color: appcolorScheme.onBackground),
   ),

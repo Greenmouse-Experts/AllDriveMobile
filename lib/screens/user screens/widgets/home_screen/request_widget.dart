@@ -73,7 +73,7 @@ class RequestWidget extends StatelessWidget {
               const Spacer(),
               GestureDetector(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => RequestsScreen(),
+                  builder: (context) => const RequestsScreen(),
                 )),
                 child: Text(
                   "see all",

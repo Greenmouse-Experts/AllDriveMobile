@@ -37,7 +37,7 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                 child: Column(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                      padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -51,7 +51,7 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                             onTap: () {
                               showAlertDialog(context);
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: 60,
                               width: 60,
                               child: Image.asset(AppImages.unsignedImgeProfile),
@@ -61,7 +61,7 @@ class _UnSignedUserHomeScreen extends State<UnSignedUserHomeScreen>
                       ),
                     ),
                     addHeight(20),
-                    AdWidget(),
+                    const AdWidget(),
                     addHeight(20),
                     pageDivider(),
                     const HomeSearchBar(),
