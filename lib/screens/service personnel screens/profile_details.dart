@@ -81,7 +81,6 @@ class _ServicePersonnelProfileDetailsScreenState
   @override
   Widget build(BuildContext context) {
     final screenWidth = getScreenWidth(context);
-    final screenHeight = getScreenHeight(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

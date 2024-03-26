@@ -117,16 +117,6 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
     _selectPage("page1", _selectedIndex);
   }
 
-  Widget _buildOffStageWidgetIndicator(String tabItem) {
-    return Offstage(
-      offstage: _currentPage != tabItem,
-      child: UnSignedHomeScreenNavigator(
-        navigatorKey: _navigatorKeys[tabItem],
-        tabItem: pageKeys[_selectedIndex],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

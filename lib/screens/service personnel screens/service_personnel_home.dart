@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/routes/personnel_tab_navigator.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
+
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class ServicePersonnelHome extends StatefulWidget {
@@ -53,7 +53,8 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                 height: constraints.maxHeight * 0.7,
                 width: constraints.maxWidth * 0.9,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(65, 239, 239, 239).withOpacity(0.3),
+                    color: const Color.fromARGB(65, 239, 239, 239)
+                        .withOpacity(0.3),
                     borderRadius: BorderRadius.circular(20)),
                 child: Center(
                   child: Column(

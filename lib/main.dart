@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/onboarding.dart';
 import 'package:roadside_heroes_app/theme_data.dart';
+import 'package:roadside_heroes_app/routes/routes.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -16,12 +16,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     FlutterNativeSplash.remove();
 
-    return MaterialApp(
+    return MaterialApp.router(
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        body: Onboarding(),
-      ),
+      routerConfig: AppRouter.router,
     );
   }
 }

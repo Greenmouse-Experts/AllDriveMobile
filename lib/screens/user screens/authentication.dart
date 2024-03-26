@@ -28,7 +28,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                   Positioned.fill(
                     child: Image.asset(
                       "assets/images/auth copy.png",
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   Positioned(
