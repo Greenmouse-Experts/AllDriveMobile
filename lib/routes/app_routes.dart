@@ -4,12 +4,12 @@ import 'package:go_router/go_router.dart';
 import '../screens/service personnel screens/bottom_navigation_bar.dart';
 
 class AppRoutes {
-  static List<AppRoute> tabs = [
-    tab(bottomNavTab: BottomNav.home),
-    tab(bottomNavTab: BottomNav.profile),
-    tab(bottomNavTab: BottomNav.requests),
-    tab(bottomNavTab: BottomNav.more),
-  ];
+  // static List<AppRoute> tabs = [
+  //   tab(bottomNavTab: BottomNav.home),
+  //   tab(bottomNavTab: BottomNav.profile),
+  //   tab(bottomNavTab: BottomNav.requests),
+  //   tab(bottomNavTab: BottomNav.more),
+  // ];
 }
 
 class AppRoute {

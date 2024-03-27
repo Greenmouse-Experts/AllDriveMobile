@@ -1,6 +1,7 @@
 // sign_in.dart
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/forgot_password.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/location.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -214,7 +215,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             addWidth(20),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                moveTo(ForgotPasswordScreen(), context);
+                              },
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(
