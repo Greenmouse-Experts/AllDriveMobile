@@ -22,7 +22,7 @@ class ServicePersonnelRequestWidget extends StatelessWidget {
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               width: constraints.maxWidth * 0.1,
               child: Image.asset(AppImages.servicePersonnelRequestWidgetIcon),
             ),
@@ -37,16 +37,16 @@ class ServicePersonnelRequestWidget extends StatelessWidget {
                     minFontSize: 18,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
-                    width: constraints.maxWidth * 0.5,
+                    width: constraints.maxWidth * 0.6,
                     child: AutoSizeText(
                       address,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color.fromRGBO(23, 39, 72, 0.7),
                       ),
                     ),
@@ -55,7 +55,7 @@ class ServicePersonnelRequestWidget extends StatelessWidget {
               ),
             ),
             SizedBox(width: constraints.maxWidth * 0.1),
-            Icon(
+            const Icon(
               Icons.more_vert,
               size: 30,
             ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../screens/service personnel screens/bottom_navigation_bar.dart';
 
 class AppRoutes {
   // static List<AppRoute> tabs = [

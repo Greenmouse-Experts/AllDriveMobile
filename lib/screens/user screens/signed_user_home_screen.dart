@@ -31,13 +31,13 @@ class SignedInUserHomeScreenState extends State<SignedInUserHomeScreen>
             children: [
               LayoutBuilder(
                 builder: (context, constraints) => Padding(
-                  padding: EdgeInsets.only(top: 20, left: 10, right: 10),
+                  padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       GestureDetector(
                         onTap: () {
-                          moveTo(ProfileScreen(), context);
+                          moveTo(const ProfileScreen(), context);
                         },
                         child: AppBarWidget(
                             imagePath: "assets/images/signed_in_image.png",

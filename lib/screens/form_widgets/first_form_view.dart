@@ -11,6 +11,7 @@ class FirstFormView extends StatefulWidget {
 }
 
 class _FirstFormViewState extends State<FirstFormView> {
+  BoxConstraints? _pageConstraints;
   bool isAllWheelDrive = false;
   String _selectedItem = 'Option 1'; // Initially selected item
 
@@ -21,6 +22,7 @@ class _FirstFormViewState extends State<FirstFormView> {
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 600;
           final screenWidth = MediaQuery.of(context).size.width;
+          _pageConstraints = constraints;
 
           return Padding(
             padding: const EdgeInsets.symmetric(
@@ -30,11 +32,29 @@ class _FirstFormViewState extends State<FirstFormView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildTextInputField(
-                    "Car Make", "Car Make", isMobile, screenWidth),
+                  "Car Make",
+                  "Car Make",
+                  isMobile,
+                  screenWidth,
+                ),
                 buildTextInputField(
-                    "Car Model", "Model", isMobile, screenWidth),
-                buildTextInputField("Year", "Year", isMobile, screenWidth),
-                buildTextInputField("Color", "Color", isMobile, screenWidth),
+                  "Car Model",
+                  "Model",
+                  isMobile,
+                  screenWidth,
+                ),
+                buildTextInputField(
+                  "Year",
+                  "Year",
+                  isMobile,
+                  screenWidth,
+                ),
+                buildTextInputField(
+                  "Color",
+                  "Color",
+                  isMobile,
+                  screenWidth,
+                ),
                 Row(
                   children: [
                     SizedBox(
@@ -80,27 +100,27 @@ class _FirstFormViewState extends State<FirstFormView> {
       children: [
         Text(
           headerText,
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
-            fontSize: 15,
+            fontSize: isMobile ? 16 : 20,
             fontWeight: FontWeight.w500,
           ),
         ),
         const SizedBox(height: 10),
         Container(
+          width: _pageConstraints!.maxWidth,
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.3),
             borderRadius: BorderRadius.circular(16),
           ),
           height: isMobile ? 52 : 85,
-          width: isMobile ? screenWidth * 0.9 : screenWidth * 0.8,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: LayoutBuilder(builder: (context, container_constraints) {
+            child: LayoutBuilder(builder: (context, containerConstraints) {
               return Row(
                 children: [
-                  Container(
-                    width: container_constraints.maxWidth * 0.7,
+                  SizedBox(
+                    width: containerConstraints.maxWidth * 0.6,
                     child: TextFormField(
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -116,24 +136,30 @@ class _FirstFormViewState extends State<FirstFormView> {
                       textCapitalization: TextCapitalization.none,
                     ),
                   ),
-                  DropdownButtonHideUnderline(
-                    child: DropdownButton<String>(
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedItem = newValue!;
-                        });
-                      },
-                      items: <String>[
-                        'Option 1',
-                        'Option 2',
-                        'Option 3',
-                        'Option 4'
-                      ].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
+                  Expanded(
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        icon: const Icon(
+                          Icons.keyboard_arrow_down,
+                          color: Colors.white,
+                        ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedItem = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          'Option 1',
+                          'Option 2',
+                          'Option 3',
+                          'Option 4'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
                 ],

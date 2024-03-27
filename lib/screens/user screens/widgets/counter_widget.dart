@@ -13,7 +13,7 @@ class CounterWidget extends StatefulWidget {
       : super(key: key);
 
   @override
-  _CounterWidgetState createState() => _CounterWidgetState();
+  State<CounterWidget> createState() => _CounterWidgetState();
 }
 
 class _CounterWidgetState extends State<CounterWidget> {

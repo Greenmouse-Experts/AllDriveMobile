@@ -1,7 +1,7 @@
 import 'package:roadside_heroes_app/routes/app_routes.dart';
 import 'package:roadside_heroes_app/screens/sign_in.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/authentication.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/onboarding.dart';
+import 'package:roadside_heroes_app/screens/onboarding.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/unsigned_home.dart';
 
@@ -37,7 +37,7 @@ class AuthRoutes {
   static AppRoute unsignedUser = AppRoute(
     name: 'unSignedUser',
     path: '/unSignedUser',
-    builder: (_, __) => const unsignedHomeScreen(),
+    builder: (_, __) => const UnsignedHomeScreen(),
   );
   static AppRoute singnIn = AppRoute(
     name: 'signIn',

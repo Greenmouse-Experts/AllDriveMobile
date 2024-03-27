@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/settings.dart';
@@ -83,7 +82,7 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
               settingContainer(
                   "assets/images/send.png", 'Requests', const RequestsScreen()),
               settingContainer("assets/images/bell.png", 'Notifications',
-                  const userNotificationScreen()),
+                  const UserNotificationScreen()),
               settingContainer(
                   "assets/images/clock.png", 'History', const RequestsScreen()),
               const Spacer(),

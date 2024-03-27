@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/faq.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
@@ -128,7 +127,7 @@ class ServicePersonnelSettingScreen extends StatelessWidget {
 
   void movetoNextPage(text, context) {
     if (text == "FAQ") {
-      moveTo(FaqScreen(), context);
+      moveTo(const FaqScreen(), context);
     } else if (text == "Terms and Conditions") {
       moveTo(const TermsAndConditionsScreen(), context);
     } else if (text == "Notifications") {

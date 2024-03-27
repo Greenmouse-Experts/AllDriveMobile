@@ -84,7 +84,7 @@ class _OnboardingState extends State<Onboarding>
                   Positioned.fill(
                     child: Image.asset(
                       contents[index].image,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   Positioned(
@@ -98,7 +98,7 @@ class _OnboardingState extends State<Onboarding>
                             contents[index].description,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: isMobile ? 30 : 55,
+                              fontSize: isMobile ? 33 : 55,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -128,8 +128,8 @@ class _OnboardingState extends State<Onboarding>
                                       }
                                       _controller.nextPage(
                                         duration:
-                                            const Duration(milliseconds: 100),
-                                        curve: Curves.easeOutBack,
+                                            const Duration(milliseconds: 200),
+                                        curve: Curves.fastOutSlowIn,
                                       );
                                     },
                                     child: Stack(

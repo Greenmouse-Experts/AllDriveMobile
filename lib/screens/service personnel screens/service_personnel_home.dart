@@ -81,7 +81,7 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                                     fontWeight: FontWeight.bold),
                               ),
                               const Spacer(),
-                              Container(
+                              SizedBox(
                                   width: 30,
                                   height: 30,
                                   child: Image.asset(
@@ -119,7 +119,7 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                                     fontWeight: FontWeight.bold),
                               ),
                               const Spacer(),
-                              Container(
+                              SizedBox(
                                   width: 30,
                                   height: 30,
                                   child: Image.asset(

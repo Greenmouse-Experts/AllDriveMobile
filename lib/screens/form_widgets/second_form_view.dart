@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class SecondFormView extends StatefulWidget {
   const SecondFormView({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _SecondFormViewState extends State<SecondFormView> {
           final screenWidth = MediaQuery.of(context).size.width;
 
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -31,30 +32,30 @@ class _SecondFormViewState extends State<SecondFormView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text("First Name",
-                            style: GoogleFonts.lato().copyWith(
+                            style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 15)),
+                                fontSize: isMobile ? 15 : 20)),
                         const SizedBox(height: 10),
                         Container(
+                          height: isMobile ? 57 : 85,
+                          width: constraints.maxWidth * 0.45,
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          height: isMobile ? 50 : 85,
-                          width:
-                              isMobile ? screenWidth * 0.4 : screenWidth * 0.4,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10),
                             child: Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: SizedBox(
                                     width: isMobile ? 20 : 32,
                                     height: isMobile ? 25 : 40,
-                                    child: Image.asset(
-                                      "assets/images/usernameheader.png",
+                                    child: SvgPicture.asset(
+                                      AppImages.requestAssistanceprofileIcon,
                                       fit: BoxFit.contain,
                                     ),
                                   ),
@@ -81,35 +82,34 @@ class _SecondFormViewState extends State<SecondFormView> {
                         ),
                       ],
                     ),
-                    addWidth(20),
+                    addWidth(constraints.maxWidth * 0.05),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Last Name",
-                            style: GoogleFonts.lato().copyWith(
+                       Text("Last Name",
+                            style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 15)),
+                                fontSize: isMobile ? 16 : 20)),
                         const SizedBox(height: 10),
                         Container(
+                           height: isMobile ? 57 : 85,
+                          width: constraints.maxWidth * 0.45,
                           decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          height: isMobile ? 50 : 85,
-                          width:
-                              isMobile ? screenWidth * 0.38 : screenWidth * 0.4,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                             child: Row(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.symmetric(horizontal: 8),
                                   child: SizedBox(
                                     width: isMobile ? 20 : 32,
                                     height: isMobile ? 25 : 40,
-                                    child: Image.asset(
-                                      "assets/images/usernameheader.png",
+                                    child: SvgPicture.asset(
+                                      AppImages.requestAssistanceprofileIcon,
                                       fit: BoxFit.contain,
                                     ),
                                   ),
@@ -120,7 +120,7 @@ class _SecondFormViewState extends State<SecondFormView> {
                                     decoration: InputDecoration(
                                       hintStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
-                                        fontSize: isMobile ? 13 : 22,
+                                        fontSize: isMobile ? 16  : 22,
                                       ),
                                       hintText: "Last Name",
                                       border: InputBorder.none,
@@ -138,20 +138,20 @@ class _SecondFormViewState extends State<SecondFormView> {
                     ),
                   ],
                 ),
-                addHeight(20),
-                Text("Email Address",
-                    style: GoogleFonts.lato().copyWith(
+                addHeight(25),
+                 Text("Email Address",
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
-                        fontSize: 15)),
+                        fontSize: isMobile ? 16 : 20)),
                 addHeight(10),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.grey.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 50 : 85,
-                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  height: isMobile ? 57 : 85,
+                  width: constraints.maxWidth,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
@@ -161,10 +161,8 @@ class _SecondFormViewState extends State<SecondFormView> {
                           child: SizedBox(
                             width: isMobile ? 27 : 32,
                             height: isMobile ? 27 : 40,
-                            child: Image.asset(
-                              "assets/images/email_pin.png",
-                              fit: BoxFit.contain,
-                            ),
+                            child: SvgPicture.asset(
+                                AppImages.requestAssistanceEmailIcon),
                           ),
                         ),
                         const SizedBox(width: 20),
@@ -187,9 +185,9 @@ class _SecondFormViewState extends State<SecondFormView> {
                     ),
                   ),
                 ),
-                addHeight(20),
-                Text("Phone Number",
-                    style: GoogleFonts.lato().copyWith(
+                addHeight(25),
+                const Text("Phone Number",
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 15)),
@@ -199,8 +197,8 @@ class _SecondFormViewState extends State<SecondFormView> {
                     color: Colors.grey.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 55 : 85,
-                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  height: isMobile ? 57 : 85,
+                  width: constraints.maxWidth,
                   child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15), // Adjust the horizontal padding here
@@ -209,7 +207,7 @@ class _SecondFormViewState extends State<SecondFormView> {
                           SizedBox(
                             width: isMobile ? 30 : 32,
                             height: isMobile ? 30 : 40,
-                            child: Image.asset("assets/images/canda_flag.png"),
+                            child: SvgPicture.asset(AppImages.usaFlag),
                           ),
                           addWidth(10),
                           const Text(
@@ -236,9 +234,9 @@ class _SecondFormViewState extends State<SecondFormView> {
                         ],
                       )),
                 ),
-                addHeight(20),
-                Text("Address",
-                    style: GoogleFonts.lato().copyWith(
+                addHeight(25),
+                const Text("Address",
+                    style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
                         fontSize: 16)),
@@ -248,8 +246,8 @@ class _SecondFormViewState extends State<SecondFormView> {
                     color: Colors.grey.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  height: isMobile ? 52 : 85,
-                  width: isMobile ? screenWidth * 0.9 : screenWidth * 0.4,
+                  height: isMobile ? 57 : 85,
+                  width: constraints.maxWidth,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
@@ -259,10 +257,8 @@ class _SecondFormViewState extends State<SecondFormView> {
                           child: SizedBox(
                             width: isMobile ? 30 : 32,
                             height: isMobile ? 30 : 40,
-                            child: Image.asset(
-                              "assets/images/map-pin.png",
-                              fit: BoxFit.contain,
-                            ),
+                            child: SvgPicture.asset(
+                                AppImages.requestAssistanceAddressIcon),
                           ),
                         ),
                         const SizedBox(width: 20),
@@ -285,7 +281,6 @@ class _SecondFormViewState extends State<SecondFormView> {
                     ),
                   ),
                 ),
-                addHeight(20)
               ],
             ),
           );

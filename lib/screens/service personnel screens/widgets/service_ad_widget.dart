@@ -24,7 +24,7 @@ class _ServiceHomeAdWidgetState extends State<ServiceHomeAdWidget>
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Container(
+            child: SizedBox(
               width: widget.constraint.maxWidth * 0.9,
               child: Stack(
                 children: [

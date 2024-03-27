@@ -56,6 +56,12 @@ class AppImages {
     "System transaction": "assets/images/notification.png",
     "System cancelled": "assets/images/Shape (1).png",
   };
+  static const String userNotificationDefaultImage = "assets/images/Group 39335.svg";
+  static const String userNotificationDiscountImage  = "assets/images/Group 39343.svg";
+  static const String requestAssistanceprofileIcon = "assets/images/username header.svg";
+  static const String requestAssistanceEmailIcon = "assets/images/smsnotification.svg";
+  static const String requestAssistanceAddressIcon = "assets/images/map-pin.svg";
+  static const String usaFlag = "assets/images/Flag_of_the_U.S..svg";
 }
 
 Map<String, String> userequestImages = {

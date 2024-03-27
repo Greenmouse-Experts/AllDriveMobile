@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/requests.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/service_ad_widget.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/request_alert.dart';
@@ -28,7 +29,7 @@ class _ServicePersonnelHomeScreenState
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Color.fromARGB(255, 217, 217, 217).withOpacity(0.2),
+              color: const Color.fromARGB(255, 217, 217, 217).withOpacity(0.2),
             ),
             width: double.infinity,
             height: 55,
@@ -48,7 +49,7 @@ class _ServicePersonnelHomeScreenState
                   addWidth(15),
                   Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.bold,
@@ -159,7 +160,7 @@ class _ServicePersonnelHomeScreenState
                     drawerWidget("assets/images/send.png", 'Requests',
                         const ServicePersonnelRequestScreen()),
                     drawerWidget("assets/images/bell.png", 'Notifications',
-                        const userNotificationScreen()),
+                        const ServicePersonnelNotificationScreen()),
                     drawerWidget("assets/images/clock.png", 'History',
                         const ServicePersonnelHomeScreen()),
                     drawerWidget("assets/images/settings.png", 'Settings',

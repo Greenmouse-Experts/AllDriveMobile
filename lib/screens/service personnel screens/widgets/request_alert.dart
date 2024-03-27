@@ -24,7 +24,7 @@ class RequestAlertWidget extends StatelessWidget {
         addHeight(5),
         AutoSizeText(
           request,
-          style: TextStyle(fontWeight: FontWeight.w500),
+          style: const TextStyle(fontWeight: FontWeight.w400),
         )
       ],
     );

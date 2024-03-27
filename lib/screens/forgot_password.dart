@@ -1,8 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/sign_in.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/location.dart';
+
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -62,21 +61,31 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           ),
                         ),
                       ),
-                      AutoSizeText(
+                       AutoSizeText(
                         maxLines: 2,
-                        "Ente the email address associated with your account",
+                        "Forgot Password?",
                         style: TextStyle(
                           fontSize: isMobile ? 20 : 50,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
+                      addHeight(5),
+                      AutoSizeText(
+                        maxLines: 1,
+                        "Enter the email address associated with your account",
+                        style: TextStyle(
+                          fontSize: isMobile ? 15 : 50,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                       addHeight(isMobile ? 20 : 30),
                       Text(
-                        "Email Address",
+                        "Email",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: isMobile ? 15 : 25,
+                            fontSize: isMobile ? 16 : 25,
                             fontWeight: FontWeight.bold),
                       ),
                       addHeight(10),
@@ -92,16 +101,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           child: Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SizedBox(
-                                  width: isMobile ? 20 : 32,
-                                  height: isMobile ? 20 : 40,
-                                  child: Image.asset(
-                                    "assets/images/usernameheader.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: isMobile ? 27 : 32,
+                            height: isMobile ? 27 : 40,
+                            child: Image.asset(
+                              "assets/images/email_pin.png",
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
                               addWidth(20),
                               Expanded(
                                 child: TextFormField(
@@ -109,7 +118,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                     hintStyle: TextStyle(
                                         color: Colors.white.withOpacity(0.3),
                                         fontSize: isMobile ? 18 : 22),
-                                    hintText: "Username",
+                                    hintText: "Email",
                                     border: InputBorder.none,
                                   ),
                                   keyboardType: TextInputType.emailAddress,
@@ -142,7 +151,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 : Size(screenWidth * 0.8, 85),
                           ),
                           child: Text(
-                            "Check Email",
+                            "CONTINUE",
                             style: TextStyle(
                               color: const Color.fromARGB(255, 20, 36, 76),
                               fontWeight: FontWeight.w900,
@@ -151,6 +160,28 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           ),
                         ),
                       ),
+                      addHeight(20),
+                        Row(
+                          children: [
+                            const Text("remembered your password?",style: TextStyle(color: Colors.white,fontSize:15 ),),
+                            addWidth(5),
+                            GestureDetector(
+                              onTap: () {
+                              Navigator.of(context).pop();
+                              },
+                              child: Text(
+                                "Login",
+                                style: TextStyle(
+                                                        decoration: TextDecoration.underline,
+                      decorationColor: Colors.white, // Optional: specify the underline color
+                      decorationStyle: TextDecorationStyle.solid,
+                      color: Colors.white,
+                      fontSize: isMobile ? 15 : 20,
+                      fontWeight: FontWeight.w600),
+                              ),
+                            )
+                          ],
+                        ),
                     ],
                   ),
                 ),

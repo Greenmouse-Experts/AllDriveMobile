@@ -13,8 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.3.7
+  flutter_svg: ^2.0.10+1
   go_router: ^13.2.1
-  google_fonts: ^6.2.1
   im_stepper: ^1.0.1+1
   image_picker: ^1.0.7
   image_sequence_animator: ^2.0.0
@@ -30,4 +30,14 @@ flutter:
   uses-material-design: true
   assets:
   - assets/images/
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/Gilroy-Medium.ttf
+        - asset: assets/fonts/Gilroy-ExtraBold.ttf
+          style: normal
+        - asset: assets/fonts/Gilroy-Regular.ttf
+        - asset: assets/fonts/Gilroy-SemiBold.ttf
+
+
   

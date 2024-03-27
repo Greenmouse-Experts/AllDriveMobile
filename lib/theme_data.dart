@@ -7,6 +7,7 @@ final appcolorScheme = ColorScheme.fromSeed(
 final containerColor = Colors.grey.withOpacity(0.3);
 
 final appTheme = ThemeData(
+  fontFamily: 'Gilroy',
   useMaterial3: true,
   colorScheme: appcolorScheme,
   scaffoldBackgroundColor: Colors.white,

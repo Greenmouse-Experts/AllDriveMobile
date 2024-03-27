@@ -39,7 +39,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   const Spacer(),
                   const Icon(Icons.arrow_forward_ios_rounded)
@@ -117,13 +117,13 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onBackground,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                       fontSize: 20),
                                 ),
                                 const Text(
                                   "Victor Okatta",
                                   style: TextStyle(
-                                    color: const Color(0xFFBDBDBD),
+                                    color:  Color(0xFFBDBDBD),
                                   ),
                                 ),
                               ],
@@ -147,7 +147,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   addHeight(20),
                   profileContainers(
@@ -167,7 +167,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   addHeight(20),
                   profileContainers(

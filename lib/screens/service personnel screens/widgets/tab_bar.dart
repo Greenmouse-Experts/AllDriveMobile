@@ -28,7 +28,7 @@ class _StackOverState extends State<StackOver>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: widget.constraints.maxWidth * 0.9,
       height: widget.constraints.maxHeight * 0.51,
       child: Column(

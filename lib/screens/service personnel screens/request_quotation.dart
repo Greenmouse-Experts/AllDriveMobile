@@ -1,6 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
@@ -37,7 +36,7 @@ class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
                 children: <Widget>[
                   SizedBox(
                       height: constraint.maxHeight * 0.25,
-                      child: FittedBox(child: const CheckImageAnimation())),
+                      child: const FittedBox(child: CheckImageAnimation())),
                   addHeight(constraint.maxHeight * 0.15),
                   const AutoSizeText(
                     'Submitted succesfully',
@@ -129,11 +128,9 @@ class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
                             children: [
                               SizedBox(
                                 width: bottomconstraints.maxWidth * 0.1,
-                                child: Container(
-                                  child: Image.asset(
-                                    AppImages.servicePersonnelRequestImage,
-                                    fit: BoxFit.cover,
-                                  ),
+                                child: Image.asset(
+                                  AppImages.servicePersonnelRequestImage,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                               addWidth(bottomconstraints.maxWidth * 0.05),
