@@ -58,7 +58,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                             "your service company\n"
                             "to render help",
                             style: TextStyle(
-                              fontSize: isMobile ? 34: 55,
+                              fontSize: isMobile ? 30: 55,
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
                             ),
