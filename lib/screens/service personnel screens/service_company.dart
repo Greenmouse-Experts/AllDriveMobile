@@ -36,12 +36,12 @@ class ServiceCompany extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(companyName,style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                          Text(address,style: const TextStyle(color: Color.fromRGBO(235, 235, 245, 0.6),fontWeight: FontWeight.w600,fontSize: 15)),
+                          Text(address,style: const TextStyle(color: Color.fromRGBO(235, 235, 245, 0.6),fontWeight: FontWeight.w500,fontSize: 15)),
                         ],
                       )
                     ],
                   ),
-                  addHeight(constraints.maxHeight * 0.3),
+                  addHeight(constraints.maxHeight * 0.2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [Text("Date Joined :$dateJoined",style: const TextStyle(color: Color.fromRGBO(235, 235, 245, 0.6)),)],

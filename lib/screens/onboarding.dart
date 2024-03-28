@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:roadside_heroes_app/screens/onboarding_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/authentication.dart';
 
@@ -83,7 +84,7 @@ class _OnboardingState extends State<Onboarding>
                   Positioned.fill(
                     child: Image.asset(
                       contents[index].image,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                     ),
                   ),
                   Positioned(
@@ -97,8 +98,8 @@ class _OnboardingState extends State<Onboarding>
                             contents[index].description,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: isMobile ? 30 : 55,
-                              fontWeight: FontWeight.w600,
+                              fontSize: isMobile ? 33 : 55,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                           SizedBox(
@@ -124,14 +125,14 @@ class _OnboardingState extends State<Onboarding>
                                         Navigator.of(context)
                                             .pushReplacement(MaterialPageRoute(
                                           builder: (context) =>
-                                              const AuthenticationScreen(),
+                                              AuthenticationScreen(),
                                         ));
                                         return;
                                       }
                                       _controller.nextPage(
                                         duration:
-                                            const Duration(milliseconds: 100),
-                                        curve: Curves.easeOutBack,
+                                            const Duration(milliseconds: 200),
+                                        curve: Curves.fastOutSlowIn,
                                       );
                                     },
                                     child: Stack(

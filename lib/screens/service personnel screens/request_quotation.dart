@@ -1,6 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class QuotationRequestScreen extends StatefulWidget {
@@ -13,6 +14,72 @@ class QuotationRequestScreen extends StatefulWidget {
 class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
   double sliderValue = 1;
   String _selectedItem = "";
+
+  void showModalDialog(
+      BuildContext context, double screenWidth, double screenHeight) {
+    showModalBottomSheet(
+      useRootNavigator: true,
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          width: screenWidth,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color.fromARGB(255, 20, 36, 76),
+          ),
+          height: screenHeight * 0.4,
+          child: Center(
+            child: LayoutBuilder(builder: (context, constraint) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  SizedBox(
+                      height: constraint.maxHeight * 0.25,
+                      child: const FittedBox(child: CheckImageAnimation())),
+                  addHeight(constraint.maxHeight * 0.15),
+                  const AutoSizeText(
+                    'Submitted succesfully',
+                    minFontSize: 23,
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w700),
+                  ),
+                  addHeight(constraint.maxHeight * 0.15),
+                  SizedBox(
+                    width: screenWidth * 0.9,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            Theme.of(context).colorScheme.onBackground,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          side: const BorderSide(
+                              width: 1.5,
+                              color: Colors.white), // Add border side here
+                        ),
+                        minimumSize: screenWidth < 600
+                            ? Size(screenWidth * 0.5, 52)
+                            : Size(screenWidth * 0.3, 85),
+                      ),
+                      child: const Text(
+                        "Continue to App",
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 205, 145, 56),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +128,9 @@ class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
                             children: [
                               SizedBox(
                                 width: bottomconstraints.maxWidth * 0.1,
-                                child: Container(
-                                  child: Image.asset(
-                                    AppImages.servicePersonnelRequestImage,
-                                    fit: BoxFit.cover,
-                                  ),
+                                child: Image.asset(
+                                  AppImages.servicePersonnelRequestImage,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                               addWidth(bottomconstraints.maxWidth * 0.05),
@@ -216,7 +281,8 @@ class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
                           width: bottomconstraints.maxWidth,
                           child: ElevatedButton(
                             onPressed: () {
-                              showModalDialog();
+                              showModalDialog(context, getScreenWidth(context),
+                                  getScreenHeight(context));
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
@@ -249,6 +315,4 @@ class _QuotationRequestScreenState extends State<QuotationRequestScreen> {
       ),
     );
   }
-
-  void showModalDialog() {}
 }

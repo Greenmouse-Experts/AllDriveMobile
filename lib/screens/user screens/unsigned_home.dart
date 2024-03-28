@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/routes/unsigned_home_tab_navigator.dart';
 
-class unsignedHomeScreen extends StatefulWidget {
-  const unsignedHomeScreen({super.key});
+class UnsignedHomeScreen extends StatefulWidget {
+  const UnsignedHomeScreen({super.key});
 
   @override
-  State<unsignedHomeScreen> createState() => _unsignedHomeScreenState();
+  State<UnsignedHomeScreen> createState() => _unsignedHomeScreenState();
 }
 
-class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
+class _unsignedHomeScreenState extends State<UnsignedHomeScreen> {
   String _currentPage = "";
   int _selectedIndex = 0;
   List<String> pageKeys = [
@@ -115,16 +115,6 @@ class _unsignedHomeScreenState extends State<unsignedHomeScreen> {
   void initState() {
     super.initState();
     _selectPage("page1", _selectedIndex);
-  }
-
-  Widget _buildOffStageWidgetIndicator(String tabItem) {
-    return Offstage(
-      offstage: _currentPage != tabItem,
-      child: UnSignedHomeScreenNavigator(
-        navigatorKey: _navigatorKeys[tabItem],
-        tabItem: pageKeys[_selectedIndex],
-      ),
-    );
   }
 
   @override

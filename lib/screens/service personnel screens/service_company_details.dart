@@ -46,7 +46,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "Company Logo",
                                   style: TextStyle(
                                       color: Color.fromRGBO(23, 39, 72, 0.7),
@@ -96,7 +96,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                             ),
                           ),
                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             child: pageDivider(thickeness: 2,color: dividerColor),
                           ),
                           const Text(
@@ -118,7 +118,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                             ),
                           ),
                             Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             child: pageDivider(thickeness: 2,color: dividerColor),
                           ),
                         
@@ -141,7 +141,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             child: pageDivider(thickeness: 2,color: dividerColor),
                           ),
                           const Text(
@@ -163,7 +163,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                             ),
                           ),
                             Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             child: pageDivider(thickeness: 2,color: dividerColor),
                           ),
                            const Text(
@@ -185,7 +185,7 @@ class ServiceCompanyDetails extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
+                            padding: const EdgeInsets.symmetric(vertical: 10),
                             child: pageDivider(thickeness: 2,color: dividerColor),
                           ),
                            const Text(

@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
@@ -116,11 +117,14 @@ class _ServicePersonnelNotificationScreenState
                         color: Theme.of(context).colorScheme.onBackground,
                         fontWeight: FontWeight.w700),
                   ),
-                  Text(message,
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontWeight: FontWeight.w700)),
+                  SizedBox(
+                    width: containerConstraints.maxWidth * 0.6,
+                    child: AutoSizeText(message,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w700)),
+                  ),
                 ],
               )
             ],

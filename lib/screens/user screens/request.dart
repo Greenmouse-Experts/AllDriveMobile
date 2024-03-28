@@ -3,7 +3,7 @@ import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class RequestsScreen extends StatelessWidget {
-  const RequestsScreen({Key? key});
+  const RequestsScreen({key});
 
   Widget requestContainer(String request, String address, String amount,
       String date, BoxConstraints constraints, context, bool isMobile) {

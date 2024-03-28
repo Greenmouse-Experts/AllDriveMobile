@@ -23,7 +23,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void getIndicatorValue() {
     if (index >= 1) {
       setState(() {
-        indicatorValue = (index + 0.6) / 4;
+        indicatorValue = (index + 0.7) / 4;
 
         indicatorValue = indicatorValue.clamp(0.0, 1.0);
       });
@@ -36,7 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       context: context,
       builder: (BuildContext context) {
         return Container(
-          width: screenWidth,
+          width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: const Color.fromARGB(255, 20, 36, 76),
@@ -109,12 +109,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = getScreenWidth(context);
     final screenHeight = getScreenHeight(context);
 
     getIndicatorValue();
-    return Scaffold(
-      appBar: AppBar(
+    return Scaffold(appBar:     AppBar(
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: const Icon(
@@ -128,9 +127,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           style: TextStyle(
               fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        elevation: 0,
         backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       ),
+
+     
       backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       body: GestureDetector(
         onTap: () {
@@ -146,17 +146,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
                   children: [
+                
                     Center(
                       child: LayoutBuilder(builder: (context, constraints) {
                         return SizedBox(
                           width: constraints.maxWidth,
                           child: Padding(
-                            padding: const EdgeInsets.all(6.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
                             child: Stack(
                               alignment: Alignment.center,
                               children: [
                                 SizedBox(
-                                  width: constraints.maxWidth * 0.9,
+                                  width: constraints.maxWidth * 0.88,
                                   height: 2,
                                   child: LinearProgressIndicator(
                                     backgroundColor: Colors.grey,
@@ -265,20 +266,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     addHeight(25),
                     if (index == 0) ...[
-                      body = FirstFormView(),
-                      addHeight(50),
+                      body = const FirstFormView(),
+                      addHeight(constraints.maxHeight * 0.1),
                     ],
                     if (index == 1) ...[
                       const SecondFormView(),
-                      addHeight(15),
+                      addHeight(constraints.maxHeight * 0.1),
                     ],
                     if (index == 2) ...[
-                      body = ThirdFormView(),
-                      addHeight(15),
+                      body = const ThirdFormView(),
+                      addHeight(constraints.maxHeight * 0.1),
                     ],
                     if (index >= 3) ...[
-                      body = FourthFormView(),
-                      addHeight(10),
+                      body = const FourthFormView(),
+                      addHeight(constraints.maxHeight * 0.1),
                     ],
                     SizedBox(
                       width: screenWidth * 0.9,

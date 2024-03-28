@@ -3,6 +3,7 @@ import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/profile_details.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_company.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_personnel_home.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/settings.dart';
 
 import '../user screens/images_data.dart';
@@ -39,7 +40,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   const Spacer(),
                   const Icon(Icons.arrow_forward_ios_rounded)
@@ -59,7 +60,11 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
     } else if (text == "Notifcations") {
       moveTo(const ServicePersonnelNotificationScreen(), context);
     } else if (text == "Settings") {
-      moveTo(const ServicePersonnelSettingScreen(), context);
+      ServicePersonnelHome.changePage(
+        context,
+        "page4",
+        3,
+      );
     } else if (text == "Help Centre") {}
   }
 
@@ -117,13 +122,13 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onBackground,
-                                      fontWeight: FontWeight.bold,
+                                      fontWeight: FontWeight.w600,
                                       fontSize: 20),
                                 ),
                                 const Text(
                                   "Victor Okatta",
                                   style: TextStyle(
-                                    color: const Color(0xFFBDBDBD),
+                                    color: Color(0xFFBDBDBD),
                                   ),
                                 ),
                               ],
@@ -147,7 +152,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   addHeight(20),
                   profileContainers(
@@ -167,7 +172,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.w500),
                   ),
                   addHeight(20),
                   profileContainers(

@@ -1,6 +1,7 @@
 // sign_in.dart
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/forgot_password.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/location.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -80,7 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           "Full Name",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: isMobile ? 15 : 25,
+                              fontSize: isMobile ? 17 : 25,
                               fontWeight: FontWeight.bold),
                         ),
                         addHeight(10),
@@ -110,6 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 addWidth(20),
                                 Expanded(
                                   child: TextFormField(
+                                    style: const TextStyle(color: Colors.white),
                                     decoration: InputDecoration(
                                       hintStyle: TextStyle(
                                           color: Colors.white.withOpacity(0.3),
@@ -134,7 +136,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           "Password",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: isMobile ? 15 : 25,
+                              fontSize: isMobile ? 17 : 25,
                               fontWeight: FontWeight.bold),
                         ),
                         addHeight(10),
@@ -164,9 +166,11 @@ class _SignInScreenState extends State<SignInScreen> {
                                 addWidth(20),
                                 Expanded(
                                   child: TextFormField(
+                                    style: const TextStyle(color: Colors.white),
                                     obscureText: obscureText,
                                     decoration: InputDecoration(
                                       hintStyle: TextStyle(
+                                          fontWeight: FontWeight.w400,
                                           color: Colors.white.withOpacity(0.3),
                                           fontSize: isMobile ? 18 : 22),
                                       hintText: "Password",
@@ -188,7 +192,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                         obscureText = !obscureText;
                                       });
                                     },
-                                    child: Container(
+                                    child: SizedBox(
                                       width: isMobile ? 30 : 32,
                                       height: isMobile ? 30 : 40,
                                       child: Image.asset(obscureText == true
@@ -214,7 +218,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                             addWidth(20),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                moveTo(const ForgotPasswordScreen(), context);
+                              },
                               child: Text(
                                 "Forgot Password?",
                                 style: TextStyle(

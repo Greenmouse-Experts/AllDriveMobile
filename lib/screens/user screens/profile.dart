@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/profile_details.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
+
+  void movetoNextScreen(String text, BuildContext context) {
+    if (text == "Notifcations") {
+      moveTo(const UserNotificationScreen(), context);
+    } else if (text == "Settings") {
+      SignedHomeScreen.changePage(context, "page4", 3);
+    } else if (text == "Help Centre") {}
+  }
 
   Widget profileContainers(
       {required String imagePath,
@@ -11,30 +21,35 @@ class ProfileScreen extends StatelessWidget {
       required BuildContext context}) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: const Color(0xFFEFF0F2)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-            child: Row(
-              children: [
-                Container(
-                  width: 30,
-                  height: 30,
-                  child: Image.asset(imagePath),
-                ),
-                addWidth(10),
-                Text(
-                  text,
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.onBackground,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                const Spacer(),
-                const Icon(Icons.arrow_forward_ios_rounded)
-              ],
+        GestureDetector(
+          onTap: () {
+            movetoNextScreen(text, context);
+          },
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xFFEFF0F2)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.asset(imagePath),
+                  ),
+                  addWidth(10),
+                  Text(
+                    text,
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.onBackground,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const Spacer(),
+                  const Icon(Icons.arrow_forward_ios_rounded)
+                ],
+              ),
             ),
           ),
         ),
@@ -79,7 +94,7 @@ class ProfileScreen extends StatelessWidget {
                             horizontal: 20, vertical: 20),
                         child: Row(
                           children: [
-                            Container(
+                            SizedBox(
                               width: 60,
                               height: 60,
                               child: Image.asset(

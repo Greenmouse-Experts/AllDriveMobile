@@ -9,6 +9,8 @@ class FourthFormView extends StatefulWidget {
 }
 
 class _FourthFormViewState extends State<FourthFormView> {
+
+  BoxConstraints? pageConstraints;
   Widget cardContainer(String imagePath) {
     return Padding(
       padding: const EdgeInsets.all(5),
@@ -28,6 +30,7 @@ class _FourthFormViewState extends State<FourthFormView> {
     return Form(
       child: LayoutBuilder(
         builder: (context, constraints) {
+          pageConstraints = constraints;
           final isMobile = constraints.maxWidth < 600;
           final screenWidth = MediaQuery.of(context).size.width;
 
@@ -71,9 +74,9 @@ class _FourthFormViewState extends State<FourthFormView> {
       children: [
         Text(
           headerText,
-          style: const TextStyle(
+          style:  TextStyle(
             color: Colors.white,
-            fontSize: 15,
+            fontSize: isMobile ? 16 : 20,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -83,8 +86,8 @@ class _FourthFormViewState extends State<FourthFormView> {
             color: Colors.grey.withOpacity(0.3),
             borderRadius: BorderRadius.circular(16),
           ),
-          height: isMobile ? 52 : 85,
-          width: isMobile ? screenWidth * 0.9 : screenWidth * 0.8,
+      height: isMobile ? 57 : 85,
+                  width: pageConstraints!.maxWidth,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -109,7 +112,6 @@ class _FourthFormViewState extends State<FourthFormView> {
             ),
           ),
         ),
-        addHeight(20),
       ],
     );
   }

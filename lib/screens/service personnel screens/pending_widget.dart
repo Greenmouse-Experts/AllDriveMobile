@@ -18,13 +18,13 @@ class PendingWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(239, 240, 242, 1),
+                    color: const Color.fromRGBO(239, 240, 242, 1),
                     borderRadius: BorderRadius.circular(10)),
                 width: constraints.maxWidth * 0.15,
                 child: Padding(
@@ -45,17 +45,17 @@ class PendingWidget extends StatelessWidget {
                       minFontSize: 18,
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.onBackground,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     SizedBox(
-                      width: constraints.maxWidth * 0.5,
+                      width: constraints.maxWidth * 0.6 ,
                       child: AutoSizeText(
                         address,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Color.fromRGBO(23, 39, 72, 0.7),
                         ),
                       ),

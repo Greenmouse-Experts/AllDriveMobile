@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/widgets/counter_widget.dart';
+import 'package:roadside_heroes_app/screens/form_widgets/counter_widget.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/widgets/service_provider_widget.dart';
 
 class ThirdFormView extends StatefulWidget {

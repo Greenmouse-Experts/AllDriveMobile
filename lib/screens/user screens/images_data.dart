@@ -1,4 +1,3 @@
-
 class AppImages {
   static const String logo = 'assets/images/logo.png';
   static const String background = 'assets/images/background.png';
@@ -47,15 +46,28 @@ class AppImages {
   static const String servicePersonnelProfileSettingsIcon =
       "assets/images/securitysafe.png";
   static const String servicePersonnelFuelRequestDetailsIcon =
-      "assets/images/mdi_fuel-2.png";  static const String appLogoForWhiteBackground =
+      "assets/images/mdi_fuel-2.png";
+  static const String appLogoForWhiteBackground =
       "assets/images/app logo white background.png";
   static const String quotationRequestImage = "assets/images/Group.png";
-   static Map<String, String> servicePersonnelNotificationImages = {
+  static Map<String, String> servicePersonnelNotificationImages = {
     "Promotion": "assets/images/promo.png",
     "System booking": "assets/images/Shape.png",
     "System transaction": "assets/images/notification.png",
     "System cancelled": "assets/images/Shape (1).png",
   };
+  static const String userNotificationDefaultImage =
+      "assets/images/Group 39335.svg";
+  static const String userNotificationDiscountImage =
+      "assets/images/Group 39343.svg";
+  static const String requestAssistanceprofileIcon =
+      "assets/images/username header.svg";
+  static const String requestAssistanceEmailIcon =
+      "assets/images/smsnotification.svg";
+  static const String requestAssistanceAddressIcon =
+      "assets/images/map-pin.svg";
+  static const String usaFlag = "assets/images/Flag_of_the_U.S..svg";
+  static const String androidSplashScreenImage = "assets/images/splash.png";
 }
 
 Map<String, String> userequestImages = {

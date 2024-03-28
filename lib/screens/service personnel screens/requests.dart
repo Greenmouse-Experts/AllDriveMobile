@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
@@ -48,7 +47,7 @@ class _ServicePersonnelRequestScreenState
                             child: Text(
                               request,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
                                   fontSize: 17,
                                   color: Theme.of(context)
                                       .colorScheme
@@ -100,7 +99,7 @@ class _ServicePersonnelRequestScreenState
                   children: [
                     GestureDetector(
                       onTap: () {
-                        moveTo(RequestDetailsScreen(), context);
+                        moveTo(const RequestDetailsScreen(), context);
                       },
                       child: SizedBox(
                         width: containerConstraints.maxWidth * 0.45,
@@ -133,7 +132,7 @@ class _ServicePersonnelRequestScreenState
                     addWidth(10),
                     GestureDetector(
                       onTap: () {
-                        moveTo(QuotationRequestScreen(), context);
+                        moveTo(const QuotationRequestScreen(), context);
                       },
                       child: SizedBox(
                         width: containerConstraints.maxWidth * 0.42,
@@ -148,7 +147,7 @@ class _ServicePersonnelRequestScreenState
                             const Text(
                               "Send Quotation",
                               style: TextStyle(
-                                color: const Color.fromRGBO(50, 186, 119, 1),
+                                color: Color.fromRGBO(50, 186, 119, 1),
                               ),
                             )
                           ],

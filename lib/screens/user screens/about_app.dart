@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
 class AboutApp extends StatelessWidget {
-  const AboutApp({Key? key});
+  const AboutApp({super.key});
 
   @override
   Widget build(BuildContext context) {

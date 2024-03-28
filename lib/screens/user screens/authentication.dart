@@ -28,7 +28,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                   Positioned.fill(
                     child: Image.asset(
                       "assets/images/auth copy.png",
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   Positioned(
@@ -58,16 +58,15 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                             "your service company\n"
                             "to render help",
                             style: TextStyle(
-                              fontSize: isMobile ? 31 : 55,
-                              fontFamily: "Gilroy-SemiBold",
+                              fontSize: isMobile ? 30: 55,
                               color: Colors.white,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           addHeight(40),
                           ElevatedButton(
                             onPressed: () => moveTo(
-                              const unsignedHomeScreen(),
+                              const UnsignedHomeScreen(),
                               context,
                             ),
                             style: ElevatedButton.styleFrom(

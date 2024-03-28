@@ -96,3 +96,5 @@ void showAlertDialog(BuildContext context) {
 }
 
 enum NotificationCategory{booking,promotion,transaction,cancelled}
+
+enum UserNotificationCategory { card, discount }

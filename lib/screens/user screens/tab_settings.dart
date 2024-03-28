@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/settings.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home_screen.dart';
+
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 
 class TabButtonSettings extends StatefulWidget {
   const TabButtonSettings({super.key});
@@ -14,14 +12,16 @@ class TabButtonSettings extends StatefulWidget {
 }
 
 class _TabButtonSettingsState extends State<TabButtonSettings> {
-  Widget settingContainer(String filePath, String text, Widget screen) {
+  Widget settingContainer(
+    String filePath,
+    String text,
+  ) {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => screen),
-          ),
+          onTap: () {
+            moveToNextScreen(text);
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -78,23 +78,56 @@ class _TabButtonSettingsState extends State<TabButtonSettings> {
                     )),
               ),
               addHeight(30),
-              settingContainer("assets/images/home.png", 'Home',
-                  SignedInUserHomeScreen(imagePath: signedInScreenImage)),
               settingContainer(
-                  "assets/images/send.png", 'Requests', const RequestsScreen()),
-              settingContainer("assets/images/bell.png", 'Notifications',
-                  const userNotificationScreen()),
+                "assets/images/home.png",
+                'Home',
+              ),
               settingContainer(
-                  "assets/images/clock.png", 'History', const RequestsScreen()),
+                "assets/images/send.png",
+                'Requests',
+              ),
+              settingContainer(
+                "assets/images/bell.png",
+                'Notifications',
+              ),
               const Spacer(),
-              settingContainer("assets/images/settings.png", 'Settings',
-                  const SettingsScreen()),
-              settingContainer("assets/images/log-out.png", 'LogOut',
-                  const RequestsScreen()),
+              settingContainer(
+                "assets/images/settings.png",
+                'Settings',
+              ),
+              settingContainer(
+                "assets/images/log-out.png",
+                'LogOut',
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void moveToNextScreen(String text) {
+    if (text == "Home") {
+      Navigator.of(context).pop();
+    } else if (text == "Requests") {
+      SignedHomeScreen.changePage(
+        context,
+        "page3",
+        2,
+      );
+    } else if (text == "Notifications") {
+      SignedHomeScreen.changePage(
+        context,
+        "page2",
+        1,
+        screen: UserNotificationScreen(),
+      );
+    } else if (text == "Settings") {
+      SignedHomeScreen.changePage(
+        context,
+        "page4",
+        3,
+      );
+    }
   }
 }

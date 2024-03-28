@@ -62,24 +62,24 @@ class TermsAndConditionsScreen extends StatelessWidget {
     style: TextStyle(
       color: Theme.of(context).colorScheme.onBackground,
     ),
-    children: [
-      const TextSpan(
+    children: const [
+      TextSpan(
         text:
             "The Services constitute a technology platform that enables Users of the Company's Platform, provided as part of the Services, to arrange and schedule repair or maintenance services for your car with independent third-party providers. Once you submit a request, we may provide you with a list of possible service providers along with their experience information.\n\n",
       ),
-      const TextSpan(
+      TextSpan(
         text:
             "The Company also provides towing service to get your vehicle out of the situation and back on road on a chargeable basis.\n\n",
       ),
-      const TextSpan(
+      TextSpan(
         text:
             "You acknowledge that the Company does not provide any repair and maintenance services for its customers and that all such above stated services are provided by other independent third-party contractors who are not employed by the Company.\n\n",
       ),
-      const TextSpan(
+      TextSpan(
         text:
             "You acknowledge that even after accepting and/or confirming an appointment for service/repair of your car, the Company cannot guarantee its availability. At the time of your appointment request to the Company, the Company will make reasonable efforts to connect you with the independent third-party service provider so that you can avail automobile repair service at or near your location.\n\n",
       ),
-      const TextSpan(
+      TextSpan(
         text:
             "You acknowledge that the cost and time period for the services/repairs are estimated in accordance with your request and are proximate in nature.\n",
       ),
