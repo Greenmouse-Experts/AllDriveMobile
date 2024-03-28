@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:roadside_heroes_app/routes/app_routes_path.dart';
+
 import 'package:roadside_heroes_app/screens/onboarding_data.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/authentication.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -99,7 +99,7 @@ class _OnboardingState extends State<Onboarding>
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: isMobile ? 33 : 55,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                           SizedBox(
@@ -122,8 +122,11 @@ class _OnboardingState extends State<Onboarding>
                                   child: GestureDetector(
                                     onTap: () {
                                       if (currentIndex == contents.length - 1) {
-                                        context.pushReplacementNamed(
-                                            AuthRoutes.viewOptions.name);
+                                        Navigator.of(context)
+                                            .pushReplacement(MaterialPageRoute(
+                                          builder: (context) =>
+                                              AuthenticationScreen(),
+                                        ));
                                         return;
                                       }
                                       _controller.nextPage(
@@ -183,8 +186,10 @@ class _OnboardingState extends State<Onboarding>
                       padding: const EdgeInsets.all(20.0),
                       child: TextButton(
                         onPressed: () {
-                          context.pushReplacementNamed(
-                              AuthRoutes.viewOptions.name);
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => const AuthenticationScreen(),
+                          ));
                         },
                         style: ButtonStyle(
                           backgroundColor:

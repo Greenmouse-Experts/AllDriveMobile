@@ -3,6 +3,7 @@ import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/profile_details.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_company.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_personnel_home.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/settings.dart';
 
 import '../user screens/images_data.dart';
@@ -59,7 +60,11 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
     } else if (text == "Notifcations") {
       moveTo(const ServicePersonnelNotificationScreen(), context);
     } else if (text == "Settings") {
-      moveTo(const ServicePersonnelSettingScreen(), context);
+      ServicePersonnelHome.changePage(
+        context,
+        "page4",
+        3,
+      );
     } else if (text == "Help Centre") {}
   }
 
@@ -123,7 +128,7 @@ class ServicePersonnelProfileScreen extends StatelessWidget {
                                 const Text(
                                   "Victor Okatta",
                                   style: TextStyle(
-                                    color:  Color(0xFFBDBDBD),
+                                    color: Color(0xFFBDBDBD),
                                   ),
                                 ),
                               ],

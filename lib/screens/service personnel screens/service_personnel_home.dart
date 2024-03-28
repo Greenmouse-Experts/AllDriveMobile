@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/routes/personnel_tab_navigator.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
 
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 
@@ -9,6 +10,13 @@ class ServicePersonnelHome extends StatefulWidget {
 
   @override
   State<ServicePersonnelHome> createState() => _ServicePersonnelHomeState();
+
+  static void changePage(BuildContext context, String pageKey, int index,
+      {Widget? screen}) {
+    final _ServicePersonnelHomeState state =
+        context.findAncestorStateOfType<_ServicePersonnelHomeState>()!;
+    state._selectPage(pageKey, index, screen: screen);
+  }
 }
 
 class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
@@ -22,13 +30,20 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
     "page4": GlobalKey<NavigatorState>(),
   };
 
-  void _selectPage(String tabItem, int index) {
-    if (tabItem == _currentPage) {
+  void _selectPage(String tabItem, int index, {Widget? screen}) {
+    if (tabItem == _currentPage && screen == null) {
       _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
     } else {
       setState(() {
         _currentPage = pageKeys[index];
         _selectedIndex = index;
+      });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_navigatorKeys.containsKey(_currentPage) && screen != null) {
+          _navigatorKeys[_currentPage]!
+              .currentState!
+              .push(MaterialPageRoute(builder: (_) => screen));
+        }
       });
     }
   }
@@ -65,11 +80,10 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                             horizontal: 20, vertical: 15),
                         child: GestureDetector(
                           onTap: () {
-                            setState(() {
-                              Navigator.of(context).pop();
-                              _selectedIndex = 1;
-                              _currentPage = pageKeys[_selectedIndex];
-                            });
+                            Navigator.of(context).pop();
+                            _selectPage("page2", 1,
+                                screen:
+                                    const ServicePersonnelNotificationScreen());
                           },
                           child: Row(
                             children: [
@@ -102,12 +116,9 @@ class _ServicePersonnelHomeState extends State<ServicePersonnelHome> {
                             horizontal: 20, vertical: 20),
                         child: GestureDetector(
                           onTap: () {
-                            setState(() {
-                              Navigator.of(context).pop();
+                            Navigator.of(context).pop();
 
-                              _selectedIndex = 3;
-                              _currentPage = pageKeys[_selectedIndex];
-                            });
+                            _selectPage("page4", 3);
                           },
                           child: Row(
                             children: [

@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/routes/signed_home_screen_tab_navigator.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
 
 class SignedHomeScreen extends StatefulWidget {
   const SignedHomeScreen({super.key});
 
   @override
   State<SignedHomeScreen> createState() => _SignedHomeScreenState();
+  static void changePage(BuildContext context, String pageKey, int index,
+      {Widget? screen}) {
+    final _SignedHomeScreenState state =
+        context.findAncestorStateOfType<_SignedHomeScreenState>()!;
+    state._selectPage(pageKey, index, screen: screen);
+  }
 }
 
 class _SignedHomeScreenState extends State<SignedHomeScreen> {
@@ -20,14 +27,20 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
     "page3": GlobalKey<NavigatorState>(),
     "page4": GlobalKey<NavigatorState>(),
   };
-
-  void _selectPage(String tabItem, int index) {
-    if (tabItem == _currentPage) {
+  void _selectPage(String tabItem, int index, {Widget? screen}) {
+    if (tabItem == _currentPage && screen == null) {
       _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
     } else {
       setState(() {
         _currentPage = pageKeys[index];
         _selectedIndex = index;
+      });
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_navigatorKeys.containsKey(_currentPage) && screen != null) {
+          _navigatorKeys[_currentPage]!
+              .currentState!
+              .push(MaterialPageRoute(builder: (_) => screen));
+        }
       });
     }
   }
@@ -64,11 +77,9 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
                             horizontal: 20, vertical: 20),
                         child: GestureDetector(
                           onTap: () {
-                            setState(() {
-                              Navigator.of(context).pop();
-                              _selectedIndex = 1;
-                              _currentPage = pageKeys[_selectedIndex];
-                            });
+                            Navigator.of(context).pop();
+                            _selectPage("page2", 1,
+                                screen: UserNotificationScreen());
                           },
                           child: Row(
                             children: [
@@ -103,12 +114,11 @@ class _SignedHomeScreenState extends State<SignedHomeScreen> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                setState(() {
-                                  Navigator.of(context).pop();
-
-                                  _selectedIndex = 3;
-                                  _currentPage = pageKeys[_selectedIndex];
-                                });
+                                Navigator.of(context).pop();
+                                _selectPage(
+                                  "page4",
+                                  3,
+                                );
                               },
                               child: const Text(
                                 "Settings",

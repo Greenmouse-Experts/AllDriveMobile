@@ -1,11 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:roadside_heroes_app/screens/onboarding.dart';
+import 'package:roadside_heroes_app/splash_screen.dart';
 import 'package:roadside_heroes_app/theme_data.dart';
-import 'package:roadside_heroes_app/routes/routes.dart';
 
 void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MainApp());
 }
 
@@ -14,12 +14,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FlutterNativeSplash.remove();
-
-    return MaterialApp.router(
+    return MaterialApp(
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      routerConfig: AppRouter.router,
+      home: getHome(),
     );
+  }
+
+  Widget getHome() {
+    if (Platform.isIOS) {
+      return const Onboarding();
+    } else {
+      return const SplashScreen();
+    }
   }
 }

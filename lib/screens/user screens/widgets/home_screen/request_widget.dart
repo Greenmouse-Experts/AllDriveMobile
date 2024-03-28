@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/request.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 
 class RequestWidget extends StatelessWidget {
   const RequestWidget({super.key});
@@ -72,9 +73,9 @@ class RequestWidget extends StatelessWidget {
               ),
               const Spacer(),
               GestureDetector(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const RequestsScreen(),
-                )),
+                onTap: () {
+                  SignedHomeScreen.changePage(context, "page3", 2);
+                },
                 child: Text(
                   "see all",
                   style: TextStyle(

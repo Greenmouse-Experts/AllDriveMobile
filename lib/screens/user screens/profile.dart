@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/profile_details.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/settings.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
-   void movetoNextScreen(String text, BuildContext context) {
-     if (text == "Notifcations") {
+  void movetoNextScreen(String text, BuildContext context) {
+    if (text == "Notifcations") {
       moveTo(const UserNotificationScreen(), context);
-     
     } else if (text == "Settings") {
-      moveTo(const SettingsScreen(), context);
+      SignedHomeScreen.changePage(context, "page4", 3);
     } else if (text == "Help Centre") {}
   }
 
@@ -24,8 +23,7 @@ class ProfileScreen extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-                        movetoNextScreen(text, context);
-
+            movetoNextScreen(text, context);
           },
           child: Container(
             decoration: BoxDecoration(
@@ -172,6 +170,4 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
-  
- 
 }

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/notification.dart';
-import 'package:roadside_heroes_app/screens/service%20personnel%20screens/requests.dart';
+import 'package:roadside_heroes_app/screens/service%20personnel%20screens/service_personnel_home.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/service_ad_widget.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/request_alert.dart';
 import 'package:roadside_heroes_app/screens/service%20personnel%20screens/widgets/tab_bar.dart';
 import 'package:roadside_heroes_app/screens/user%20screens/images_data.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/notification.dart';
 
 class ServicePersonnelHomeScreen extends StatefulWidget {
   const ServicePersonnelHomeScreen({Key? key}) : super(key: key);
@@ -18,14 +16,16 @@ class ServicePersonnelHomeScreen extends StatefulWidget {
 
 class _ServicePersonnelHomeScreenState
     extends State<ServicePersonnelHomeScreen> {
-  Widget drawerWidget(String filePath, String text, Widget screen) {
+  Widget drawerWidget(
+    String filePath,
+    String text,
+  ) {
     return Column(
       children: [
         GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => screen),
-          ),
+          onTap: () {
+            moveToNextScreen(text);
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -155,18 +155,26 @@ class _ServicePersonnelHomeScreenState
                       child: Image.asset(AppImages.appLogo),
                     ),
                     addHeight(25),
-                    drawerWidget("assets/images/home.png", 'Home',
-                        const ServicePersonnelHomeScreen()),
-                    drawerWidget("assets/images/send.png", 'Requests',
-                        const ServicePersonnelRequestScreen()),
-                    drawerWidget("assets/images/bell.png", 'Notifications',
-                        const ServicePersonnelNotificationScreen()),
-                    drawerWidget("assets/images/clock.png", 'History',
-                        const ServicePersonnelHomeScreen()),
-                    drawerWidget("assets/images/settings.png", 'Settings',
-                        const ServicePersonnelHomeScreen()),
-                    drawerWidget("assets/images/log-out.png", 'LogOut',
-                        const ServicePersonnelHomeScreen()),
+                    drawerWidget(
+                      "assets/images/home.png",
+                      'Home',
+                    ),
+                    drawerWidget(
+                      "assets/images/send.png",
+                      'Requests',
+                    ),
+                    drawerWidget(
+                      "assets/images/bell.png",
+                      'Notifications',
+                    ),
+                    drawerWidget(
+                      "assets/images/settings.png",
+                      'Settings',
+                    ),
+                    drawerWidget(
+                      "assets/images/log-out.png",
+                      'LogOut',
+                    ),
                   ],
                 ),
               ),
@@ -175,5 +183,30 @@ class _ServicePersonnelHomeScreenState
         },
       ),
     );
+  }
+
+  void moveToNextScreen(String text) {
+    if (text == "Home") {
+      Navigator.of(context).pop();
+    } else if (text == "Requests") {
+      ServicePersonnelHome.changePage(
+        context,
+        "page3",
+        2,
+      );
+    } else if (text == "Notifications") {
+      ServicePersonnelHome.changePage(
+        context,
+        "page2",
+        1,
+        screen: ServicePersonnelHomeScreen(),
+      );
+    } else if (text == "Settings") {
+      ServicePersonnelHome.changePage(
+        context,
+        "page4",
+        3,
+      );
+    }
   }
 }
