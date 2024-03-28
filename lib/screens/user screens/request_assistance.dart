@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:roadside_heroes_app/constants.dart';
 import 'package:roadside_heroes_app/image%20data/sign_up_image_data.dart';
-import 'package:roadside_heroes_app/screens/user%20screens/signed_home.dart';
+import 'package:roadside_heroes_app/screens/user%20screens/signed_user_home.dart';
 import 'package:roadside_heroes_app/screens/sign_up_widgets/check_in_animation.dart';
 import 'package:roadside_heroes_app/screens/form_widgets/first_form_view.dart';
 import 'package:roadside_heroes_app/screens/form_widgets/fourth_view.dart';
@@ -113,7 +113,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     final screenHeight = getScreenHeight(context);
 
     getIndicatorValue();
-    return Scaffold(appBar:     AppBar(
+    return Scaffold(
+      appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: const Icon(
@@ -129,8 +130,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       ),
-
-     
       backgroundColor: const Color.fromARGB(255, 20, 36, 76),
       body: GestureDetector(
         onTap: () {
@@ -146,7 +145,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                 child: Column(
                   children: [
-                
                     Center(
                       child: LayoutBuilder(builder: (context, constraints) {
                         return SizedBox(
